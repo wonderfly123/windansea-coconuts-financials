@@ -9,7 +9,7 @@ def knobs(**over):
     k = {"start_cash": 100000, "hire_month": "2027-01", "season_months": [5, 6, 7, 8, 9],
          "new_accounts_per_month": 0, "value_per_account": 1000, "events_multiplier": 1.0,
          "baseline": {m: 0.0 for m in MONTHS}, "one_offs": [], "cogs_pct": 0.2, "noncore_pct": 0.1, "sales_tax_pct": 0.05, "overhead_pct": 0.0,
-         "overhead_fixed": 10000, "core_actual": 5000, "core_plan": 28400}
+         "overhead_fixed": 10000, "core_actual": 5000, "core_plan": 28400, "tax_pct": 0.0, "owner_draws": 0}
     k.update(over)
     return k
 
@@ -34,6 +34,17 @@ def test_events_multiplier_and_one_off():
                          one_offs=[{"month": "2026-10", "amount": 5000}]))
     oct_ = rows[1]
     assert oct_["revenue"] == 20000 and oct_["burn"] == pytest.approx(20000 * 0.35 + 10000 + 5000)
+
+
+def test_tax_reserve_on_cumulative_profit():
+    base = {m: 0.0 for m in MONTHS}
+    base["2026-09"] = 100000  # variable 35% = 35k, fixed 15k, profit 50k
+    rows = project(knobs(baseline=base, tax_pct=0.4, owner_draws=5000))
+    sep = rows[0]
+    assert sep["reserve"] == pytest.approx((50000 + 5000) * 0.4) and sep["tax"] == sep["reserve"]
+    assert sep["cash"] == pytest.approx(100000 + 50000 - sep["tax"])
+    # a loss month releases part of the reserve
+    assert rows[1]["tax"] < 0
 
 
 def test_summary_lowest_and_runs_out():

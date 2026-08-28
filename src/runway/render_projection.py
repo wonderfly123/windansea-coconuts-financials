@@ -24,7 +24,8 @@ def projection_section(defaults: dict, start_cash: float, core_actual: float) ->
     d = defaults
     baseline_inputs = "".join(
         f'<label>{_mlabel(m)}<input id="base-{m}" type="number" step="500" value="{round(d["baseline"].get(m, 0))}"></label>' for m in MONTHS)
-    data = {"start_cash": round(start_cash, 2), "core_actual": round(core_actual, 2), "presets": P.PRESETS}
+    data = {"start_cash": round(start_cash, 2), "core_actual": round(core_actual, 2), "presets": P.PRESETS,
+            "owner_draws": k["owner_draws"]}
     return (
         '<h2 id="projection-h">Runway, the next twelve months</h2>'
         '<div class="tile" id="projection">'
@@ -50,13 +51,14 @@ def projection_section(defaults: dict, start_cash: float, core_actual: float) ->
         + _knob("sales_tax_pct", "Sales tax remitted, % of revenue", round(d["sales_tax_pct"] * 100, 1), "0.5")
         + _knob("overhead_pct", "Event overhead, % of revenue", round(d["overhead_pct"] * 100, 1), "0.5")
         + _knob("overhead_fixed", "Fixed overhead per month", round(d["overhead_fixed"]), "100")
+        + _knob("tax_pct", "Income tax set aside, % of profit", round(k["tax_pct"] * 100), "1")
         + '<label>One off deals, one per line as YYYY-MM: amount<textarea id="one_offs" placeholder="2026-11: 25000"></textarea></label>'
         + '</div>'
         '<h3>Baseline revenue by month before growth</h3>'
         f'<div class="baseline">{baseline_inputs}</div>'
-        '<div class="tscroll"><table><thead><tr><th>Month</th><th class="num">Wholesale</th><th class="num">Events and one offs</th><th class="num">Revenue</th><th class="num">Burn</th><th class="num">Cash at month end</th></tr></thead>'
+        '<div class="tscroll"><table><thead><tr><th>Month</th><th class="num">Wholesale</th><th class="num">Events and one offs</th><th class="num">Revenue</th><th class="num">Burn</th><th class="num">Tax set aside</th><th class="num">Cash at month end</th></tr></thead>'
         '<tbody id="proj-body"></tbody></table></div>'
-        '<p class="small">Burn = revenue times (product % + staff % + event overhead % + sales tax %) plus fixed overhead plus core team.</p>'
+        '<p class="small">Burn = revenue times (product % + staff % + event overhead % + sales tax %) plus fixed overhead plus core team. Income tax reserve = tax % of cumulative profit (owner draws added back), taken from cash as profit accrues.</p>'
         '</details></div>'
         f'<script>window.RUNWAY={json.dumps(data)};</script>'
     )

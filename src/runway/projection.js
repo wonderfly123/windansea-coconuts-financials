@@ -30,11 +30,13 @@
       overhead_fixed: parseFloat($("overhead_fixed").value) || 0,
       core_actual: D.core_actual,
       core_plan: parseFloat($("core_plan").value) || 0,
+      tax_pct: parseFloat($("tax_pct").value) / 100 || 0,
+      owner_draws: D.owner_draws,
     };
   }
 
   function project(k) {
-    let cash = k.start_cash, accounts = 0;
+    let cash = k.start_cash, accounts = 0, cumProfit = 0, reserve = 0;
     return MONTHS.map((m) => {
       const inSeason = k.season_months.includes(parseInt(m.slice(5, 7), 10));
       accounts = inSeason ? accounts + k.new_accounts_per_month : 0;
@@ -44,13 +46,17 @@
       const revenue = wholesale + events + one_off;
       const core = m >= k.hire_month ? k.core_plan : k.core_actual;
       const burn = revenue * (k.cogs_pct + k.noncore_pct + k.sales_tax_pct + k.overhead_pct) + k.overhead_fixed + core;
-      cash = cash + revenue - burn;
-      return { month: m, wholesale, events, one_off, revenue, burn, cash, core };
+      cumProfit += revenue - burn + k.owner_draws;
+      const newReserve = Math.max(0, cumProfit) * k.tax_pct;
+      const tax = newReserve - reserve;
+      reserve = newReserve;
+      cash = cash + revenue - burn - tax;
+      return { month: m, wholesale, events, one_off, revenue, burn, tax, reserve, cash, core };
     });
   }
 
   function renderTable(rows) {
-    const body = rows.map((r) => `<tr class="${r.cash < 0 ? "neg" : ""}"><td>${mlabel(r.month)}</td><td>${money(r.wholesale)}</td><td>${money(r.events + r.one_off)}</td><td>${money(r.revenue)}</td><td>${money(r.burn)}</td><td class="num strong">${money(r.cash)}</td></tr>`).join("");
+    const body = rows.map((r) => `<tr class="${r.cash < 0 ? "neg" : ""}"><td>${mlabel(r.month)}</td><td>${money(r.wholesale)}</td><td>${money(r.events + r.one_off)}</td><td>${money(r.revenue)}</td><td>${money(r.burn)}</td><td>${money(r.tax)}</td><td class="num strong">${money(r.cash)}</td></tr>`).join("");
     $("proj-body").innerHTML = body;
   }
 
@@ -134,6 +140,7 @@
       `<li><strong>Starting cash ${money(k.start_cash)}:</strong> Ramp checking minus card charges that will auto pay.</li>` +
       `<li><strong>Costs that move with revenue:</strong> product ${Math.round(k.cogs_pct * 100)}%, event staff ${Math.round(k.noncore_pct * 100)}%, event overhead (travel, rentals, meals, fuel, photographers, supplies) ${Math.round(k.overhead_pct * 100)}%, sales tax remitted ${(k.sales_tax_pct * 100).toFixed(1)}% (revenue is counted with tax in, so it goes back out here). All from May to Aug actuals, so a quiet month costs far less than a busy one.</li>` +
       `<li><strong>Fixed costs:</strong> ${money(k.overhead_fixed)} a month that does not move with events (software, insurance, accounting, ads, storage, ADP fees). Core team ${money(k.core_actual)} a month (what is paid today) until the full plan starts ${hireTxt}, then ${money(k.core_plan)} a month with the Ops Manager and Edy hired and Tim Kosmos on bookkeeping.</li>` +
+      `<li><strong>Income tax:</strong> ${Math.round(k.tax_pct * 100)}% of profit set aside as it is earned, since S corp profit is taxed on the owners' returns. Reserve by ${mlabel(rows[rows.length - 1].month)}: ${money(rows[rows.length - 1].reserve)}. Cash on the chart is after this reserve. Tim Kosmos should confirm the rate.</li>` +
       `<li><strong>Result:</strong> average burn ${money(burn)} a month against average revenue ${money(tot / 12)}.</li>`;
     $("scenario").innerHTML =
       `<div><span>Revenue next 12 months</span><strong>${money(tot)}</strong></div>` +

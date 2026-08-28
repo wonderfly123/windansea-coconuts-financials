@@ -153,6 +153,8 @@ PROJECTION_KNOBS = {
     "events_multiplier": 1.0,
     "tail_factors": {"2026-09": 0.7, "2026-10": 0.45, "2026-11": 0.2, "2026-12": 0.15},
     "one_offs": [],
+    "tax_pct": 0.35,          # income tax set aside on cumulative profit (S corp pass through, owners pay it)
+    "owner_draws": 6700,      # Harrison $4,000 + Jordan $2,700 draws inside the core plan, not deductible
 }
 PRESETS = {
     "status_quo": {"new_accounts_per_month": 0, "events_multiplier": 1.0},
