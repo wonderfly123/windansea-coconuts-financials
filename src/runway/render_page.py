@@ -186,14 +186,11 @@ def _core_table(c) -> str:
 def _gtm() -> str:
     cards = []
     for g in P.GTM:
-        ex = ", ".join(g["examples"])
         cards.append(
             f'<div class="tile gtm {g["cls"]}"><h3>{e(g["lane"])}</h3>'
             f'<div class="owner">Owner: <strong>{e(g["owner"])}</strong></div>'
             f'<p>{e(g["what"])}</p><p><strong>How it sells.</strong> {e(g["how"])}</p>'
-            f'<p><strong>When it pays.</strong> {e(g["season"])}</p>'
-            f'<p class="small"><strong>Customers so far:</strong> {e(ex)}.</p>'
-            f'<p class="small"><strong>Where it shows up in the runway:</strong> {e(g["lever"])}</p></div>')
+            f'<p><strong>When it pays.</strong> {e(g["season"])}</p></div>')
     return ('<h2>How we sell</h2>'
             '<p class="small">Three lanes. Harrison hunts the big and the recurring; Trent converts everything that comes in the door. '
             'Still unowned: servicing wholesale accounts after the close, and marketing beyond social.</p>'

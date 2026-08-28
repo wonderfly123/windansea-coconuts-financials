@@ -177,7 +177,7 @@ GTM = [
      "lever": "One off deals in the Dashboard runway, typed in by month."},
     {"lane": "Inbound events: weddings, birthdays, corporate", "owner": "Trent", "cls": "muted",
      "what": "Middle of the pack events that come to us: weddings, birthday parties, company parties, real estate and community events.",
-     "how": "Inbound. Trent quotes, books, staffs and runs them end to end. Ads and organic social feed this lane.",
+     "how": "Inbound. Leads come from social media, paid ads and referrals from past events. Trent quotes, books, staffs and runs them end to end.",
      "season": "Follows the San Diego event calendar, strongest April to October.",
      "examples": ["Michael Kang wedding", "Citreno corporate event", "Clark Sandcastle", "real estate events", "AI on the Lot", "Foodbeast"],
      "lever": "The events multiplier from ads and organic in the Dashboard runway."},
