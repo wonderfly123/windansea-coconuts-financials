@@ -50,7 +50,8 @@ td.num,th.num{text-align:right}
 tr.total td{font-weight:600;border-top:2px solid var(--ink);border-bottom:0}
 tr.neg td{color:var(--bad)}
 .tscroll{overflow-x:auto}
-.pill{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;font-weight:500}
+.pill{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;font-weight:500;white-space:nowrap}
+td.status{white-space:nowrap;width:1%}
 .pill.filled{background:var(--sea-soft);color:var(--sea)}.pill.nothired{background:var(--husk-soft);color:var(--husk)}.pill.noowner{background:var(--bad-soft);color:var(--bad)}
 .pill.overdue{background:var(--bad-soft);color:var(--bad)}
 details summary{cursor:pointer;color:var(--sea);font-weight:500;margin-top:8px}
@@ -173,7 +174,7 @@ def _core_table(c) -> str:
     for r in t["rows"]:
         pill = {"filled": "filled", "not hired": "nothired"}[r["status"]]
         rows.append(f'<tr><td>{e(r["person"])}<div class="small">{e(r["role"])}</div></td>'
-                    f'<td><span class="pill {pill}">{e(r["status"])}</span></td>'
+                    f'<td class="status"><span class="pill {pill}">{e(r["status"])}</span></td>'
                     f'<td class="num">{money(r["plan_total"])}</td></tr>')
     rows.append(f'<tr class="total"><td>Total per month</td><td></td><td class="num">{money(t["plan_total"])}</td></tr>')
     return ('<div class="tile plan"><div class="tscroll"><table><thead><tr><th>Role</th><th>Status</th>'
@@ -227,7 +228,7 @@ def roles_tab() -> str:
     for area, items in P.ROLES:
         for i, (resp, owner, status) in enumerate(items):
             first = f'<td rowspan="{len(items)}"><strong>{e(area)}</strong></td>' if i == 0 else ""
-            rows.append(f'<tr>{first}<td>{e(resp)}</td><td>{e(owner)}</td><td><span class="pill {cls[status]}">{e(status)}</span></td></tr>')
+            rows.append(f'<tr>{first}<td>{e(resp)}</td><td>{e(owner)}</td><td class="status"><span class="pill {cls[status]}">{e(status)}</span></td></tr>')
     comp = "".join(f'<tr><td>{e(n)}</td><td class="num">{money(g)}</td><td class="num">{money(t)}</td><td class="num">{money(tot)}</td></tr>' for n, g, t, tot in P.PLAN_COMP)
     comp += f'<tr class="total"><td>Total monthly</td><td class="num">{money(sum(r[1] for r in P.PLAN_COMP))}</td><td class="num">{money(sum(r[2] for r in P.PLAN_COMP))}</td><td class="num">{money(P.PLAN_TOTAL)}</td></tr>'
     return ('<h2>Every role the business needs</h2>'
