@@ -174,15 +174,12 @@ def _core_table(c) -> str:
         pill = {"filled": "filled", "not hired": "nothired"}[r["status"]]
         rows.append(f'<tr><td>{e(r["person"])}<div class="small">{e(r["role"])}</div></td>'
                     f'<td><span class="pill {pill}">{e(r["status"])}</span></td>'
-                    f'<td class="num">{money(r["actual"])}</td><td class="num">{money(r["plan_total"])}</td>'
-                    f'<td class="num">{money(r["diff"])}</td></tr>')
-    rows.append(f'<tr class="total"><td>Total</td><td></td><td class="num">{money(t["actual_total"])}</td>'
-                f'<td class="num">{money(t["plan_total"])}</td><td class="num">{money(t["diff_total"])}</td></tr>')
-    return ('<div class="tile plan"><div class="tscroll"><table><thead><tr><th>Role</th><th>Status</th><th class="num">Actual avg / mo</th>'
-            '<th class="num">Plan / mo</th><th class="num">Plan minus actual</th></tr></thead><tbody>' + "".join(rows) + '</tbody></table></div>'
-            '<p class="small">Actual = ADP employer total cost plus direct transfers, May to Aug 2026. Plan = fully loaded monthly cost from the roles doc (25% payroll tax where it applies). '
-            'Harrison actual is lumpy: it includes the Chase card, Amex and Chase 8371 paydowns in May and July. '
-            'Juniper is on ADP at roughly $3,800 per month loaded, versus $1,200 as a contractor in the doc. Tim Kosmos (bookkeeping, $400 a month) was added to the core team in Aug 2026 and is not in the doc.</p></div>')
+                    f'<td class="num">{money(r["plan_total"])}</td></tr>')
+    rows.append(f'<tr class="total"><td>Total per month</td><td></td><td class="num">{money(t["plan_total"])}</td></tr>')
+    return ('<div class="tile plan"><div class="tscroll"><table><thead><tr><th>Role</th><th>Status</th>'
+            '<th class="num">Cost per month</th></tr></thead><tbody>' + "".join(rows) + '</tbody></table></div>'
+            '<p class="small">Fully loaded monthly cost from the roles doc (25% payroll tax where it applies), plus Tim Kosmos for bookkeeping. '
+            f'Today the filled roles cost about {money(t["actual_total"])} a month.</p></div>')
 
 
 def _gtm() -> str:
@@ -219,8 +216,8 @@ def dashboard_tab(c, projection_html) -> str:
         + _tile_avg("Overhead", P.OVERHEAD, c, "muted", "Everything else that is not people: travel, software, insurance, rentals, meals, consultants and photographers, reimbursements, ADP fees.")
         + '</div>'
         '<div class="grid g2" style="margin-top:14px">' + _tile_sales_tax(c) + _tile_noncore(c) + '</div>'
-        '<h2>Core team, actual versus the plan</h2>' + _core_table(c)
-        + _gtm() + projection_html
+        '<h2>Core team</h2>' + _core_table(c)
+        + projection_html
     )
 
 
@@ -246,8 +243,9 @@ def page(c, projection_html, projection_js) -> str:
         f'<title>Windansea Coconuts Runway</title>{FONTS}<style>{CSS}</style>'
         '<div class="wrap">'
         f'<h1>Windansea Coconuts, runway</h1><p class="sub">Data as of {e(c["as_of"])}. Ramp, Square and ADP.</p>'
-        '<div class="tabs" role="tablist"><button class="on" data-tab="dash" role="tab">Dashboard</button><button data-tab="roles" role="tab">Roles from the doc</button></div>'
+        '<div class="tabs" role="tablist"><button class="on" data-tab="dash" role="tab">Dashboard</button><button data-tab="gtm" role="tab">How we sell</button><button data-tab="roles" role="tab">Roles from the doc</button></div>'
         f'<section class="tab on" id="tab-dash">{dashboard_tab(c, projection_html)}</section>'
+        f'<section class="tab" id="tab-gtm">{_gtm()}</section>'
         f'<section class="tab" id="tab-roles">{roles_tab()}</section>'
         '</div>'
         '<script>document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{'
