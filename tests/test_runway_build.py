@@ -31,7 +31,7 @@ def test_context_numbers(ctx):
 
 def test_render_contents(ctx):
     html = build.render(ctx)
-    for needle in ["Money in the bank", "$127,455", "TBD", "Roles from the doc", "Runway, the next twelve months",
+    for needle in ["Money in the bank", "$127,455", "TBD", "Company roles", "Runway, the next twelve months",
                    'data-preset="plan"', "window.RUNWAY", "Sales tax remitted", "How we sell", "Owner: <strong>Trent</strong>", "<title>Windansea Coconuts Runway</title>"]:
         assert needle in html, needle
     # No dashes as pauses in headings or table headers

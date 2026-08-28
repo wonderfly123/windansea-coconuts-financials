@@ -230,7 +230,7 @@ def roles_tab() -> str:
             rows.append(f'<tr>{first}<td>{e(resp)}</td><td>{e(owner)}</td><td><span class="pill {cls[status]}">{e(status)}</span></td></tr>')
     comp = "".join(f'<tr><td>{e(n)}</td><td class="num">{money(g)}</td><td class="num">{money(t)}</td><td class="num">{money(tot)}</td></tr>' for n, g, t, tot in P.PLAN_COMP)
     comp += f'<tr class="total"><td>Total monthly</td><td class="num">{money(sum(r[1] for r in P.PLAN_COMP))}</td><td class="num">{money(sum(r[2] for r in P.PLAN_COMP))}</td><td class="num">{money(P.PLAN_TOTAL)}</td></tr>'
-    return ('<h2>Every role the business needs</h2><p class="small">From Windansea_Roles_Responsibilities.docx. Status reflects who owns it today.</p>'
+    return ('<h2>Every role the business needs</h2>'
             '<div class="tile"><div class="tscroll"><table><thead><tr><th>Area</th><th>Responsibility</th><th>Owner</th><th>Status</th></tr></thead><tbody>'
             + "".join(rows) + '</tbody></table></div></div>'
             '<h2>Monthly compensation in the plan</h2>'
@@ -243,7 +243,7 @@ def page(c, projection_html, projection_js) -> str:
         f'<title>Windansea Coconuts Runway</title>{FONTS}<style>{CSS}</style>'
         '<div class="wrap">'
         f'<h1>Windansea Coconuts, runway</h1><p class="sub">Data as of {e(c["as_of"])}. Ramp, Square and ADP.</p>'
-        '<div class="tabs" role="tablist"><button class="on" data-tab="dash" role="tab">Dashboard</button><button data-tab="gtm" role="tab">How we sell</button><button data-tab="roles" role="tab">Roles from the doc</button></div>'
+        '<div class="tabs" role="tablist"><button class="on" data-tab="dash" role="tab">Dashboard</button><button data-tab="gtm" role="tab">How we sell</button><button data-tab="roles" role="tab">Company roles</button></div>'
         f'<section class="tab on" id="tab-dash">{dashboard_tab(c, projection_html)}</section>'
         f'<section class="tab" id="tab-gtm">{_gtm()}</section>'
         f'<section class="tab" id="tab-roles">{roles_tab()}</section>'
