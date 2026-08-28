@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Windansea Coconuts, Financial State of the Union</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f1419; --panel: #1a212b; --line: #2a333f;
+      --text: #e6edf3; --muted: #8b97a7; --green: #2ecc71; --red: #e74c3c;
+      --accent: #1f6feb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg); color: var(--text); padding: 24px;
+    }
+    header { margin-bottom: 8px; }
+    header h1 { margin: 0; font-size: 28px; }
+    header h2 { margin: 4px 0 0; font-size: 16px; font-weight: 500; color: var(--muted); }
+    .pull-date { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    .controls { display: flex; gap: 16px; align-items: center; margin: 20px 0; flex-wrap: wrap; }
+    .controls label { font-size: 13px; color: var(--muted); margin-right: 6px; }
+    select, input { background: var(--panel); color: var(--text); border: 1px solid var(--line);
+      border-radius: 6px; padding: 8px 10px; font-size: 14px; }
+    .squares { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 24px; }
+    @media (max-width: 1100px) { .squares { grid-template-columns: repeat(3, 1fr); } }
+    .square { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 16px; min-height: 90px; }
+    .square .k { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+    .square .v { font-size: 22px; font-weight: 700; margin-top: 8px; }
+    .v.green { color: var(--green); }
+    .v.red { color: var(--red); }
+    .grid2 { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+    @media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 18px; margin-bottom: 20px; }
+    .panel h3 { margin: 0 0 14px; font-size: 16px; }
+    .owner { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .owner .line { display: flex; justify-content: space-between; padding: 6px 0;
+      border-bottom: 1px solid var(--line); font-size: 14px; }
+    .owner .line.total { font-weight: 700; border-bottom: none; }
+    .cat-row { display: flex; align-items: center; gap: 10px; margin: 6px 0; font-size: 13px; }
+    .cat-name { width: 140px; color: var(--muted); }
+    .cat-bar { height: 14px; background: var(--accent); border-radius: 4px; min-width: 2px; }
+    .cat-amt { margin-left: auto; }
+    ul.takeaways { margin: 0; padding-left: 18px; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--panel); }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .table-wrap { max-height: 420px; overflow: auto; }
+    .pos { color: var(--green); } .neg { color: var(--red); }
+    .square[data-tip] { position: relative; cursor: help; }
+    .square[data-tip]:hover::after,
+    .square[data-tip].tip-open::after {
+      content: attr(data-tip);
+      position: absolute; left: 0; top: calc(100% + 6px); z-index: 20;
+      width: 260px; max-width: 88vw; padding: 10px 12px;
+      background: #0b0f14; color: var(--text); border: 1px solid var(--line);
+      border-radius: 8px; font-size: 12px; font-weight: 400; line-height: 1.5;
+      text-transform: none; letter-spacing: normal; white-space: normal;
+      box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    }
+    /* Right-align the last two so the box never runs off screen. */
+    .square:nth-last-child(-n+2)[data-tip]:hover::after,
+    .square:nth-last-child(-n+2)[data-tip].tip-open::after { left: auto; right: 0; }
+    button { background: var(--accent); color: #fff; border: none; border-radius: 6px;
+      padding: 9px 16px; font-size: 14px; cursor: pointer; }
+    button:hover { opacity: .9; }
+    button.del { background: transparent; color: var(--muted); padding: 2px 8px; font-size: 16px; }
+    ul.qlist { list-style: none; margin: 14px 0 0; padding: 0; }
+    ul.qlist li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0;
+      border-bottom: 1px solid var(--line); font-size: 14px; }
+    ul.qlist .qmeta { color: var(--muted); font-size: 12px; white-space: nowrap; }
+    ul.qlist .qtext { flex: 1; white-space: pre-wrap; }
+    .owner .line[data-tip] { position: relative; cursor: help; }
+    .owner .line[data-tip] span:first-child::after { content: " \24d8"; opacity: .45; font-size: 11px; }
+    .owner .line[data-tip]:hover::after, .owner .line[data-tip].tip-open::after {
+      content: attr(data-tip);
+      position: absolute; right: 0; top: calc(100% + 4px); z-index: 20;
+      width: 250px; max-width: 88vw; padding: 10px 12px;
+      background: #0b0f14; color: var(--text); border: 1px solid var(--line);
+      border-radius: 8px; font-size: 12px; font-weight: 400; line-height: 1.5;
+      white-space: normal; box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Windansea Coconuts</h1>
+    <h2>Financial State of the Union</h2>
+    <div class="pull-date" id="pullDate">Live from the reconciled ledger.</div>
+  </header>
+
+  <div class="controls">
+    <div><label for="startSel">Start</label><select id="startSel"></select></div>
+    <div><label for="endSel">End</label><select id="endSel"></select></div>
+  </div>
+
+  <section class="squares" id="squares"></section>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>Revenue and Expenses by month</h3>
+      <canvas id="trend" height="110"></canvas>
+    </div>
+    <div class="panel">
+      <h3>Questions / Notes</h3>
+      <div class="controls">
+        <input type="text" id="qInput" placeholder="Type a question or note and press Enter" style="flex:1; min-width:150px">
+        <button id="qSave">Save</button>
+      </div>
+      <ul class="qlist" id="qList"></ul>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>Owner Compensation</h3>
+      <div class="owner">
+        <div>
+          <strong>Jordan</strong>
+          <div class="line"><span>Capital One car</span><span id="jCar"></span></div>
+          <div class="line"><span>BofA draw</span><span id="jDraw"></span></div>
+          <div class="line total"><span>Total</span><span id="jTotal"></span></div>
+        </div>
+        <div>
+          <strong>Harrison</strong>
+          <div class="line"><span>ADP W2</span><span id="hW2"></span></div>
+          <div class="line" data-tip="Includes the money the business paid to pay down Harrison's personal credit cards (Chase $8,000 and Amex $2,047), plus transfers to his Chase checking and a $1,400 loan from Jordan. He runs the business, so this counts as his pay."><span>Direct</span><span id="hDirect"></span></div>
+          <div class="line total"><span>Total</span><span id="hTotal"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Operating expense by category</h3>
+      <div id="categories"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Transactions</h3>
+    <div class="controls">
+      <input type="text" id="txnSearch" placeholder="Search counterparty, description, category">
+      <select id="txnBucket"><option value="">All buckets</option></select>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>Date</th><th>Source</th><th>Counterparty</th><th>Category</th>
+          <th class="num">Amount</th><th>Bucket</th><th>Flag</th><th>Review</th>
+        </tr></thead>
+        <tbody id="txnBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

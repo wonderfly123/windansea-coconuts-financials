@@ -1,0 +1,110 @@
+[
+  {
+    "id": "m-square-1",
+    "amount": 1500.00,
+    "status": "sent",
+    "bankDescription": "SQUARE INC; DEPOSIT",
+    "postedAt": "2026-03-10T14:00:00Z",
+    "counterpartyName": "Square Inc",
+    "kind": "incomingPayment",
+    "mercuryCategory": "Revenue",
+    "accountId": "acct-checking",
+    "account": "acct-checking"
+  },
+  {
+    "id": "m-internal-1",
+    "amount": -500.00,
+    "status": "sent",
+    "bankDescription": "Transfer to Savings",
+    "postedAt": "2026-03-11T10:00:00Z",
+    "counterpartyName": "Internal Savings",
+    "kind": "internalTransfer",
+    "mercuryCategory": null,
+    "accountId": "acct-checking",
+    "account": "acct-checking"
+  },
+  {
+    "id": "m-dup-1",
+    "amount": -10.00,
+    "status": "sent",
+    "bankDescription": "DUPLICATE FIRST COPY",
+    "postedAt": "2026-03-12T10:00:00Z",
+    "counterpartyName": "Vendor X",
+    "kind": "debitCardTransaction",
+    "mercuryCategory": "Software",
+    "accountId": "acct-checking",
+    "account": "acct-checking"
+  },
+  {
+    "id": "m-dup-1",
+    "amount": -25.00,
+    "status": "sent",
+    "bankDescription": "DUPLICATE SECOND COPY WINS",
+    "postedAt": "2026-03-12T11:00:00Z",
+    "counterpartyName": "Vendor X",
+    "kind": "debitCardTransaction",
+    "mercuryCategory": "Software",
+    "accountId": "acct-checking",
+    "account": "acct-checking"
+  },
+  {
+    "id": "m-failed-1",
+    "amount": -29.99,
+    "status": "failed",
+    "bankDescription": "ZAPIER.COM/CHARGE",
+    "failedAt": "2026-03-13T20:03:54Z",
+    "counterpartyName": "Zapier",
+    "kind": "debitCardTransaction",
+    "mercuryCategory": "Software",
+    "accountId": "acct-checking",
+    "account": "acct-checking"
+  },
+  {
+    "id": "m-venmo-1",
+    "amount": -300.00,
+    "status": "sent",
+    "bankDescription": "VENMO; PAYMENT",
+    "postedAt": "2026-03-14T09:00:00Z",
+    "counterpartyName": "Venmo",
+    "kind": "externalTransfer",
+    "mercuryCategory": null,
+    "accountId": "acct-checking",
+    "account": "acct-checking"
+  },
+  {
+    "id": "m-capone-1",
+    "amount": -674.51,
+    "status": "sent",
+    "bankDescription": "CAPITAL ONE AUTO; DIRECTPAY; Jordan Millhausen",
+    "postedAt": "2026-03-15T09:00:00Z",
+    "counterpartyName": "Capital One Auto Finance",
+    "kind": "externalTransfer",
+    "mercuryCategory": null,
+    "accountId": "acct-checking",
+    "account": "acct-checking"
+  },
+  {
+    "id": "m-bofa-1",
+    "amount": -2000.00,
+    "status": "sent",
+    "bankDescription": "Bank of America - Checking ••4201",
+    "postedAt": "2026-05-15T09:00:00Z",
+    "counterpartyName": "Bank of America",
+    "kind": "externalTransfer",
+    "mercuryCategory": null,
+    "accountId": "acct-checking",
+    "account": "acct-checking"
+  },
+  {
+    "id": "m-adp-1",
+    "amount": -1200.00,
+    "status": "sent",
+    "bankDescription": "ADP WAGE PAY",
+    "postedAt": "2026-03-16T09:00:00Z",
+    "counterpartyName": "ADP",
+    "kind": "externalTransfer",
+    "mercuryCategory": null,
+    "accountId": "acct-checking",
+    "account": "acct-checking"
+  }
+]

@@ -1,0 +1,404 @@
+[
+ {
+  "date": "2026-06-19",
+  "amount": 1841.87,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-18",
+  "amount": 500,
+  "source_account_name": "Checking Account",
+  "memo": "Bill #No.1 - Ariana Cohen"
+ },
+ {
+  "date": "2026-06-18",
+  "amount": 10,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-18",
+  "amount": 3124.63,
+  "source_account_name": "Checking Account",
+  "memo": "Bill #SS-2026-001 - Solo Systems"
+ },
+ {
+  "date": "2026-06-17",
+  "amount": 135,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-17",
+  "amount": 174.57,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-16",
+  "amount": 1847.61,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-16",
+  "amount": 3000,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-16",
+  "amount": 217.5,
+  "source_account_name": "Checking Account",
+  "memo": "Bill #10001 - MONIQUE ESCALANTE"
+ },
+ {
+  "date": "2026-06-16",
+  "amount": 25793.15,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-06-16",
+  "amount": 261.06,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-15",
+  "amount": 674.51,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-15",
+  "amount": 3923.08,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-06-15",
+  "amount": 2815,
+  "source_account_name": "Checking Account",
+  "memo": "Bill #1 - Ariana Cohen"
+ },
+ {
+  "date": "2026-06-14",
+  "amount": 1612.81,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-13",
+  "amount": 139.17,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-13",
+  "amount": 6432.23,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-13",
+  "amount": 1814.93,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-12",
+  "amount": 2801.56,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-06-12",
+  "amount": 979,
+  "source_account_name": "Checking Account",
+  "memo": "Bill #FVDL53Z9-0002 - Nathan Zini"
+ },
+ {
+  "date": "2026-06-11",
+  "amount": 1787.48,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-11",
+  "amount": 5214.9,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-06-11",
+  "amount": 1400,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-10",
+  "amount": 750,
+  "source_account_name": "Checking Account",
+  "memo": "Bill #No.1 - Oscar Garza"
+ },
+ {
+  "date": "2026-06-09",
+  "amount": 656.81,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-09",
+  "amount": 409,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-08",
+  "amount": 1822.05,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-06",
+  "amount": 1665.36,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-05",
+  "amount": 401.37,
+  "source_account_name": "SAND CLOUD HOLDI",
+  "memo": null
+ },
+ {
+  "date": "2026-06-05",
+  "amount": 260,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-05",
+  "amount": 100,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-04",
+  "amount": 16,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-04",
+  "amount": 60,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-03",
+  "amount": 1059.76,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-03",
+  "amount": 125,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-03",
+  "amount": 85,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-03",
+  "amount": 125,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-03",
+  "amount": 125,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-02",
+  "amount": 2712.59,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-06-02",
+  "amount": 1743.97,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-01",
+  "amount": 1729.42,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-06-01",
+  "amount": 20.92,
+  "source_account_name": null,
+  "memo": null
+ },
+ {
+  "date": "2026-06-01",
+  "amount": 25,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-06-01",
+  "amount": 100,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-05-30",
+  "amount": 1427.08,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-05-29",
+  "amount": 269.11,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-05-29",
+  "amount": 1000,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-05-28",
+  "amount": 10000,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-05-28",
+  "amount": 2035.93,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-05-27",
+  "amount": 1086.39,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-05-27",
+  "amount": 4940.99,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-05-27",
+  "amount": 632.93,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-05-26",
+  "amount": 904.42,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-05-26",
+  "amount": 10574.07,
+  "source_account_name": "The Bitter Herb",
+  "memo": null
+ },
+ {
+  "date": "2026-05-26",
+  "amount": 524.66,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-05-26",
+  "amount": 454.76,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-05-26",
+  "amount": 1384.47,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-05-23",
+  "amount": 5000,
+  "source_account_name": "SoCal 4813",
+  "memo": null
+ },
+ {
+  "date": "2026-05-23",
+  "amount": 725.3,
+  "source_account_name": "Checking Account",
+  "memo": null
+ },
+ {
+  "date": "2026-05-23",
+  "amount": 66.43,
+  "source_account_name": null,
+  "memo": null
+ },
+ {
+  "date": "2026-05-23",
+  "amount": 413.72,
+  "source_account_name": null,
+  "memo": null
+ },
+ {
+  "date": "2026-05-21",
+  "amount": 700.17,
+  "source_account_name": "Square Inc",
+  "memo": null
+ },
+ {
+  "date": "2026-05-15",
+  "amount": 334.43,
+  "source_account_name": null,
+  "memo": null
+ },
+ {
+  "date": "2026-05-15",
+  "amount": 1982.87,
+  "source_account_name": null,
+  "memo": null
+ },
+ {
+  "date": "2026-05-15",
+  "amount": 3450,
+  "source_account_name": null,
+  "memo": null
+ },
+ {
+  "date": "2026-05-15",
+  "amount": 12000,
+  "source_account_name": "Estimated Taxes 3211",
+  "memo": null
+ },
+ {
+  "date": "2026-05-13",
+  "amount": 13123.55,
+  "source_account_name": "Estimated Taxes 3211",
+  "memo": null
+ }
+]

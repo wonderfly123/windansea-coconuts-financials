@@ -1,0 +1,24 @@
+[
+  {
+    "transaction_uuid": "r-charge-1",
+    "spent_by_user": "Harrison Goldfarb",
+    "amount": "$12.44",
+    "state": "PENDING",
+    "transaction_time": "2026-03-18T21:25:12+00:00",
+    "merchant_name": "Uber",
+    "merchant_category": "Taxi and Rideshare",
+    "spend_allocation_name": "General expenses",
+    "spend_allocation_id": "alloc-1"
+  },
+  {
+    "transaction_uuid": "r-refund-1",
+    "spent_by_user": "Harrison Goldfarb",
+    "amount": "-$18.00",
+    "state": "CLEARED",
+    "transaction_time": "2026-03-19T15:00:00+00:00",
+    "merchant_name": "Amazon",
+    "merchant_category": "Merchandise",
+    "spend_allocation_name": "General expenses",
+    "spend_allocation_id": "alloc-1"
+  }
+]

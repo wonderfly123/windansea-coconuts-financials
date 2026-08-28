@@ -1,0 +1,22 @@
+[
+  {
+    "id": "po-sample-1",
+    "status": "PAID",
+    "location_id": "L-TEST",
+    "arrival_date": "2026-04-10",
+    "amount_money": {"amount": 250000, "currency_code": "USD"},
+    "destination": {"type": "BANK_ACCOUNT", "id": "bact:testaccount"},
+    "created_at": "2026-04-10T02:00:00Z",
+    "type": "BATCH"
+  },
+  {
+    "id": "po-sample-failed",
+    "status": "FAILED",
+    "location_id": "L-TEST",
+    "arrival_date": "2026-04-11",
+    "amount_money": {"amount": 999999, "currency_code": "USD"},
+    "destination": {"type": "BANK_ACCOUNT", "id": "bact:testaccount"},
+    "created_at": "2026-04-11T02:00:00Z",
+    "type": "BATCH"
+  }
+]

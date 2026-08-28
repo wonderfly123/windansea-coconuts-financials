@@ -1,0 +1,11 @@
+{
+  "pulled_through": "2026-06-19",
+  "current_date_raw": "Fri Jun 19 2026",
+  "window_start": "2026-01-01",
+  "mercury_accounts": [
+    {"id": "a803d718-3c74-11ee-9e90-8b3ec5d7b68d", "name": "SoCal Checking ••4813", "status": "active"},
+    {"id": "47545954-5d1c-11f0-b5b9-97e3c8a00212", "name": "Estimated Taxes Savings ••3211", "status": "active"},
+    {"id": "4f3bf40a-93dc-11f0-98fd-cba21d03b5db", "name": "Vegas Checking ••5742", "status": "archived"}
+  ],
+  "notes": "Prompt assumed accounts a803d718 (operating), c8016c12 (SoCal/credit-linked), 47545954 (savings). Live reality: a803d718 is the SoCal active checking, c8016c12 does not exist (Mercury IO credit autopays from checking, hence IO PAYMENT exclusions), 47545954 is the estimated-taxes savings ($0), and 4f3bf40a Vegas checking is archived ($0). Pulling all three real accounts including archived for early-2026 history."
+}
