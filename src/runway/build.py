@@ -12,6 +12,7 @@ from src.runway.render_page import page
 from src.runway.render_projection import projection_section
 
 OUT = L.ROOT / "docs" / "runway_dashboard.html"
+PAGES = L.ROOT / "docs" / "index.html"  # GitHub Pages copy, full HTML document
 JS = Path(__file__).with_name("projection.js")
 CURRENCY_CLOUD = 67226.0
 
@@ -56,7 +57,12 @@ def render(ctx: dict) -> str:
 def main(out: Path = OUT) -> Path:
     ctx = build_context()
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(render(ctx))
+    html = render(ctx)
+    out.write_text(html)
+    if out == OUT:
+        PAGES.write_text('<!doctype html><html lang="en"><head><meta charset="utf-8">'
+                         '<meta name="viewport" content="width=device-width,initial-scale=1">'
+                         + html.replace("</style>", "</style></head><body>", 1) + "</body></html>")
     for s in P.SECTIONS:
         print(f"{s:15s} avg {ctx['avgs'][s]:>10,.0f}  " + "  ".join(f"{m[5:]}={ctx['months'][s][m]:,.0f}" for m in P.MONTHS))
     print(f"cash {ctx['cash']:,.2f} card owed {ctx['card_owed']:,.2f} AR {ctx['ar']['total']:,.2f} ({ctx['ar']['count']})")
