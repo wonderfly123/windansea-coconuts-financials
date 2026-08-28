@@ -193,10 +193,10 @@ def _gtm() -> str:
             f'<p>{e(g["what"])}</p><p><strong>How it sells.</strong> {e(g["how"])}</p>'
             f'<p><strong>When it pays.</strong> {e(g["season"])}</p>'
             f'<p class="small"><strong>Customers so far:</strong> {e(ex)}.</p>'
-            f'<p class="small"><strong>In the runway model:</strong> {e(g["lever"])}</p></div>')
+            f'<p class="small"><strong>Where it shows up in the runway:</strong> {e(g["lever"])}</p></div>')
     return ('<h2>How we sell</h2>'
             '<p class="small">Three lanes. Harrison hunts the big and the recurring; Trent converts everything that comes in the door. '
-            'Roles doc gaps still open: wholesale account servicing after the close, and marketing beyond social.</p>'
+            'Still unowned: servicing wholesale accounts after the close, and marketing beyond social.</p>'
             '<div class="grid g3">' + "".join(cards) + '</div>')
 
 
