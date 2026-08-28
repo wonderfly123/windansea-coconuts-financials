@@ -77,6 +77,7 @@ details summary{cursor:pointer;color:var(--sea);font-weight:500;margin-top:8px}
 .scenario div{background:var(--panel2);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--muted)}
 .scenario strong{display:block;color:var(--ink);font-size:17px;font-variant-numeric:tabular-nums;margin-top:2px}
 .scenario .what{grid-column:1 / -1}.scenario .what strong{font-size:14px;font-weight:500}
+.people{grid-template-columns:1fr 1.4fr}@media(max-width:820px){.people{grid-template-columns:1fr}}
 .gtm{border-top:4px solid var(--line)}.gtm.sea{border-top-color:var(--sea)}.gtm.husk{border-top-color:var(--husk)}.gtm.muted{border-top-color:var(--muted)}
 .gtm p{margin:8px 0;font-size:14px}.gtm .owner{font-size:14px;margin:2px 0 6px}
 .assume{margin:8px 0 4px;font-size:15px;max-width:70ch}
@@ -164,7 +165,7 @@ def _tile_noncore(c) -> str:
     names = {P.SUB_ADP_HOURLY: "ADP hourly staff", P.SUB_VENMO: "Venmo / Tremendous event staff", P.SUB_CONTRACTOR: "Indico Thread, Nathan Zini, Josh Escalante"}
     items = [f"{names.get(k, k)}: {money(sum(v.values()) / sum(P.MONTH_WEIGHTS.values()))} avg" for k, v in subs.items()]
     return (f'<div class="tile">{tip("ADP employer total cost for everyone except Harrison, Trent and Juniper, plus Venmo and Tremendous payouts and the three named contractors. Varies with event volume.", items)}'
-            f'<h3>People, event staff and contractors</h3><div class="big">{money(c["avgs"][P.PEOPLE_NONCORE])}</div>'
+            f'<h3>Event staff and contractors</h3><div class="big">{money(c["avgs"][P.PEOPLE_NONCORE])}</div>'
             f'<div class="note">per month average; swings with the event calendar</div>{bars(c["months"][P.PEOPLE_NONCORE], "husk")}</div>')
 
 
@@ -177,7 +178,7 @@ def _core_table(c) -> str:
                     f'<td class="status"><span class="pill {pill}">{e(r["status"])}</span></td>'
                     f'<td class="num">{money(r["plan_total"])}</td></tr>')
     rows.append(f'<tr class="total"><td>Total per month</td><td></td><td class="num">{money(t["plan_total"])}</td></tr>')
-    return ('<div class="tile plan"><div class="tscroll"><table><thead><tr><th>Role</th><th>Status</th>'
+    return ('<div class="tile plan"><h3>Core team, plan</h3><div class="tscroll"><table><thead><tr><th>Role</th><th>Status</th>'
             '<th class="num">Cost per month</th></tr></thead><tbody>' + "".join(rows) + '</tbody></table></div>'
             '<p class="small">Fully loaded monthly cost from the roles doc (25% payroll tax where it applies), plus Tim Kosmos for bookkeeping. '
             f'Today the filled roles cost about {money(t["actual_total"])} a month.</p></div>')
@@ -208,13 +209,14 @@ def _review(c) -> str:
 def dashboard_tab(c, projection_html) -> str:
     return (
         '<div class="grid g3">' + _tile_cash(c) + _tile_ar(c) + _tile_hopeful() + '</div>'
-        '<h2>What it costs to run, not counting people</h2>'
-        '<div class="grid g2">'
+        '<h2>Monthly costs, no people</h2>'
+        '<div class="grid g3">'
         + _tile_avg("Product and coconuts", P.COGS, c, "", "Sun Hing, Coy's Produce, Gearheart, Alibaba, carts, packaging and anything bucketed COGS.")
         + _tile_avg("Overhead", P.OVERHEAD, c, "muted", "Everything else that is not people: travel, software, insurance, rentals, meals, consultants and photographers, reimbursements, ADP fees.")
+        + _tile_sales_tax(c)
         + '</div>'
-        '<div class="grid g2" style="margin-top:14px">' + _tile_sales_tax(c) + _tile_noncore(c) + '</div>'
-        '<h2>Core team</h2>' + _core_table(c)
+        '<h2>Monthly costs, people</h2>'
+        '<div class="grid g2 people">' + _tile_noncore(c) + _core_table(c) + '</div>'
         + projection_html
     )
 
