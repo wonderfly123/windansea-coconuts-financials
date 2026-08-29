@@ -148,16 +148,21 @@ def _tile_hopeful() -> str:
             '<div class="note">Deals being worked and their total value. No pipeline source yet.</div></div>')
 
 
+def _pct(c, key) -> str:
+    rev = c["avgs"][P.REVENUE]
+    return f"{c['avgs'][key] / rev * 100:.0f}% of revenue" if rev else ""
+
+
 def _tile_avg(title, key, c, cls, tipline) -> str:
     items = [f"{n}: {money(v)}" for n, v in c["tops"][key]]
     return (f'<div class="tile">{tip(tipline, items)}<h3>{e(title)}</h3><div class="big">{money(c["avgs"][key])}</div>'
-            f'<div class="note">per month, May to Aug 2026 (Aug to the 28th, prorated)</div>{bars(c["months"][key], cls)}</div>')
+            f'<div class="note">per month, May to Aug 2026 (Aug to the 28th, prorated). <strong>{_pct(c, key)}</strong></div>{bars(c["months"][key], cls)}</div>')
 
 
 def _tile_sales_tax(c) -> str:
     return (f'<div class="tile">{tip("CDTFA / CA DEPT TAX remittances. Pass through, not in any average or in the projection.")}'
             f'<h3>Sales tax remitted</h3><div class="big">{money(sum(c["months"][P.SALES_TAX].values()))}</div>'
-            f'<div class="note">May to Aug total, kept out of every average</div>{bars(c["months"][P.SALES_TAX], "muted")}</div>')
+            f'<div class="note">May to Aug total, kept out of every average. <strong>{_pct(c, P.SALES_TAX)}</strong></div>{bars(c["months"][P.SALES_TAX], "muted")}</div>')
 
 
 def _tile_noncore(c) -> str:
@@ -166,7 +171,7 @@ def _tile_noncore(c) -> str:
     items = [f"{names.get(k, k)}: {money(sum(v.values()) / sum(P.MONTH_WEIGHTS.values()))} avg" for k, v in subs.items()]
     return (f'<div class="tile">{tip("ADP employer total cost for everyone except Harrison, Trent and Juniper, plus Venmo and Tremendous payouts and the three named contractors. Varies with event volume.", items)}'
             f'<h3>Event staff and contractors</h3><div class="big">{money(c["avgs"][P.PEOPLE_NONCORE])}</div>'
-            f'<div class="note">per month average; swings with the event calendar</div>{bars(c["months"][P.PEOPLE_NONCORE], "husk")}</div>')
+            f'<div class="note">per month average; swings with the event calendar. <strong>{_pct(c, P.PEOPLE_NONCORE)}</strong></div>{bars(c["months"][P.PEOPLE_NONCORE], "husk")}</div>')
 
 
 def _core_table(c) -> str:
@@ -176,12 +181,14 @@ def _core_table(c) -> str:
         pill = {"filled": "filled", "not hired": "nothired"}[r["status"]]
         rows.append(f'<tr><td>{e(r["person"])}<div class="small">{e(r["role"])}</div></td>'
                     f'<td class="status"><span class="pill {pill}">{e(r["status"])}</span></td>'
-                    f'<td class="num">{money(r["plan_total"])}</td></tr>')
-    rows.append(f'<tr class="total"><td>Total per month</td><td></td><td class="num">{money(t["plan_total"])}</td></tr>')
-    return ('<div class="tile plan"><h3>Core team, plan</h3><div class="tscroll"><table><thead><tr><th>Role</th><th>Status</th>'
-            '<th class="num">Cost per month</th></tr></thead><tbody>' + "".join(rows) + '</tbody></table></div>'
-            '<p class="small">Fully loaded monthly cost from the roles doc (25% payroll tax where it applies), plus Tim Kosmos for bookkeeping. '
-            f'Today the filled roles cost about {money(t["actual_total"])} a month.</p></div>')
+                    f'<td class="num">{money(r["actual"])}</td><td class="num">{money(r["plan_total"])}</td></tr>')
+    rows.append(f'<tr class="total"><td>Total per month</td><td></td><td class="num">{money(t["actual_total"])}</td><td class="num">{money(t["plan_total"])}</td></tr>')
+    rev = c["avgs"][P.REVENUE]
+    pct = f' Today that is {t["actual_total"] / rev * 100:.0f}% of revenue; the plan is {t["plan_total"] / rev * 100:.0f}% of a May to Aug month.' if rev else ""
+    return ('<div class="tile plan"><h3>Core team</h3><div class="tscroll"><table><thead><tr><th>Role</th><th>Status</th>'
+            '<th class="num">Today / mo</th><th class="num">Plan / mo</th></tr></thead><tbody>' + "".join(rows) + '</tbody></table></div>'
+            '<p class="small">Today = what was actually paid, May to Aug average (ADP employer cost plus direct transfers). Plan = fully loaded monthly cost from the roles doc, plus Tim Kosmos.'
+            + pct + '</p></div>')
 
 
 def _gtm() -> str:
