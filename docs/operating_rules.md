@@ -21,14 +21,6 @@ Assessment:
 - **The business is under marketed.** Agencies spend 8 to 14% of gross income on
   sales and marketing. Windansea spends 0.3%. Edy at $3,250 would be 3.6% of a summer
   month, still under the peer range.
-- **The winter is what eats the profit, not the pricing.** Every coconut and every
-  event keeps about 70 cents on the dollar, so the way the business prices and
-  delivers is not the issue. The issue is that the salaried team costs about $22,000
-  a month for twelve months while real revenue only shows up for about five of them.
-  From October to April that cost keeps running with almost nothing coming in, and
-  the profit the summer makes gets spent covering it. That is why a 29% summer month
-  turns into an 11% year. Better margins would not fix this because the margins are
-  already good. Winter revenue or a smaller winter team would.
 - **The full plan team does not fit 2026 revenue.** At $28,800 a month of core people
   the year loses about $76k. Either winter revenue has to grow or the hires wait for
   the season.
