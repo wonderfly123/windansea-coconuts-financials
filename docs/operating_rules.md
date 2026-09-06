@@ -1,29 +1,48 @@
 # Windansea Coconuts: Operating Rules Instead of a Budget
 
-## BLUF: how the business compares
+## BLUF: how healthy the business is
 
-On a summer month Windansea earns better margins than both peer groups it resembles.
-On a full year it does not, because the fixed nut runs through a winter with almost
-no revenue. The full plan team, carried year round on 2026 revenue, loses money.
+Windansea is a healthy small business with a strong product and a loose back office.
+It keeps more of each dollar than the agencies and wholesalers it resembles, it has
+cash, and its salaried team is affordable. The weak spots are collections, spending
+that is not tied to any event, owner draws above plan, and almost no marketing.
 
-| Metric | Windansea, summer month | Windansea, 2026 full year (est.) | Brand activation agencies | Specialty food wholesale |
+**How the margins compare.** Each row is a share of revenue. "Summer month" is the
+May to Aug average of about $90k. "2026 year" is an estimate for the full calendar
+year. Peer figures are cited in the appendix.
+
+| What is measured | Windansea, summer month | Windansea, 2026 year | Brand activation agencies | Specialty food wholesale |
 |---|---:|---:|---:|---:|
-| Gross margin (after product and event labor) | 70% | 70% | 50 to 60% delivery margin [1] | 20 to 35% [2], 15% for public food wholesalers [3] |
-| Total labor, % of revenue | 33% (46% at full plan) | 33% | 50 to 70% [4] | not benchmarked |
-| Operating margin, owners at plan pay | 29% (16% at full plan) | 11% (loss of 13% at full plan) | 13% public advertising [3], 20%+ well run agencies [1] | 3% public food wholesalers [3], 4 to 8% specialty [2] |
-| After tax margin (35% reserve) | 19% | 7% | 13% digital agencies 2025, 15% long run [5] | 1% public food wholesalers [3] |
-| Marketing spend, % of revenue | 0.3% | 0.3% | 8 to 14% of gross income [1] | not benchmarked |
+| **Gross margin.** What is left after paying for the coconuts and the people who work the event. Shows whether pricing covers the cost of delivering. | 70% | 70% | 50 to 60% [1] | 20 to 35% [2], 15% for public distributors [3] |
+| **Labor.** Event staff plus the salaried team, as a share of revenue. Shows how people heavy the business is. | 33% (46% with the full plan team) | 33% | 50 to 70% [4] | not benchmarked |
+| **Operating margin.** What is left after every cost including owner salaries, before income tax. Shows whether the whole business, not just the product, makes money. | 29% (16% with the full plan team) | 11% (a 13% loss with the full plan team) | 13% public agencies [3], 20% or better well run [1] | 3% public distributors [3], 4 to 8% specialty [2] |
+| **After tax margin.** Operating margin after a 35% income tax reserve. The number to compare with published net margins. | 19% | 7% | 13% in 2025, 15% long run [5] | 1% public distributors [3] |
+| **Marketing.** Ads, PR and social as a share of revenue. Shows how much growth is being bought. | 0.3% | 0.3% | 8 to 14% [1] | not benchmarked |
 
-Assessment:
+**What is healthy**
 
-- **The unit economics are strong.** A 70% gross margin is agency territory, not
-  wholesale territory. The coconut is priced like an activation, not like produce.
-- **The business is under marketed.** Agencies spend 8 to 14% of gross income on
-  sales and marketing. Windansea spends 0.3%. Edy at $3,250 would be 3.6% of a summer
-  month, still under the peer range.
-- **The full plan team does not fit 2026 revenue.** At $28,800 a month of core people
-  the year loses about $76k. Either winter revenue has to grow or the hires wait for
-  the season.
+- **Pricing covers delivery with room to spare.** Product is 16% of revenue and event
+  staff 14%. A 70% gross margin is agency territory, not produce territory.
+- **The salaried team is affordable.** Core people are 23% of a summer month. Even with
+  the full plan team, labor stays under the 50 to 70% agencies run.
+- **There is cash.** $119k after the card balance covers 5.4 months of the fixed nut
+  with nothing coming in.
+
+**What is not**
+
+- **Collections are behind.** $60k is owed on 37 open invoices and $40k of it, on 22
+  invoices, is past due. Nobody owns accounts receivable.
+- **Overhead is loose.** Overhead is 25% of gross profit, inside the 20 to 30% agencies
+  run, but $5.5k a month of it is restaurants, groceries, Amazon, clothing and
+  reimbursements, and $4k is travel that is not priced into quotes.
+- **Owner draws run above plan.** Harrison took about $9,900 a month against a $6,500
+  plan. The extra $3,400 is affordable in a $90k month and not in a $20k month.
+- **Growth is not being bought.** Marketing is 0.3% of revenue against a peer range of
+  8 to 14%. Edy at $3,250 would be 3.6% of a summer month.
+- **Revenue is concentrated.** One deal, Currency Cloud at $67k, is 14% of the year so
+  far.
+- **The full plan team does not fit this year's revenue.** At $28,800 a month of core
+  people, 2026 as estimated loses about $76k.
 
 Assumptions:
 
