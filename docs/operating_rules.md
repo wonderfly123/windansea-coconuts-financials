@@ -40,29 +40,16 @@ a month. Peer figures are cited in the appendix.
 | **After tax margin.** Operating margin after a 35% income tax reserve. | 19% summer, 8% for the year | 13% in 2025, 15% long run [5] | 1% public distributors [3] |
 | **Marketing.** Ads, PR and social. | 0.3% | 8 to 14% [1] | not benchmarked |
 
-Read across the table. On gross margin Windansea keeps 69% of every dollar after the
-coconuts and the people who work the event. That is above the agency range and more
-than double the wholesale range, because a branded coconut at an event is priced like
-an activation, not like produce. Labor is 33% of revenue where agencies run 50 to 70%,
-so the business is not people heavy even though it delivers with people. Operating
-margin is where the calendar shows: 29% in a summer month beats every peer, but the
-same costs spread over a full year with a quiet winter give 12%, which is ordinary for
-an agency and good for a wholesaler. Marketing at 0.3% against a peer range of 8 to
-14% is the clearest gap. The summer margin says the product is right. The year margin
-says the business is not yet buying enough winter revenue to use it.
-
-Assumptions:
-
-- Year estimate: actual Jan to Aug $465k plus Sep to Dec tailed off August (minus
-  Currency Cloud) at 70, 45, 20 and 15%, for $582k.
-- Owner pay at plan: Harrison $6,500, Jordan $2,700. Draws above plan are
-  distributions, not cost. Trent, Juniper and Tim at actuals. "Full plan team" adds
-  the Ops Manager and Edy and moves Trent to $9,125.
-- Cost ratios held at summer levels across the year.
-- Sales tax collected is in revenue and the remittance is a cost.
-- No public source benchmarks luxury event food carts. Agency figures are digital and
-  marketing agency surveys. Wholesale figures are public distributors and one uncited
-  trade blog.
+- **Gross margin 69%.** Above the agency range, double the wholesale range. A branded
+  coconut at an event is priced like an activation, not like produce.
+- **Labor 33%.** Agencies run 50 to 70%. The business delivers with people but is not
+  people heavy.
+- **Operating margin 29% in summer, 12% for the year.** The summer month beats every
+  peer. Spread over a full year with a quiet winter it is ordinary for an agency and
+  good for a wholesaler.
+- **Marketing 0.3%.** Agencies spend 8 to 14%. The clearest gap.
+- The summer margin says the product is right. The year margin says the business is
+  not yet buying enough winter revenue to use it.
 
 ## Why percentages and caps instead of a budget
 
@@ -87,15 +74,15 @@ wrong in most months. Instead, every cost gets one of two rules:
 
 After these costs, every revenue dollar has about 49 cents left to cover fixed costs.
 
-**Are these healthy?** Product and event staff together are 32% of revenue. Caterers,
-the closest peers for the cost of putting food in front of people, run 28 to 36% on
-food alone and 55 to 62% on food plus labor [6][7]. Windansea spends half that, so the
-first two lines are very healthy. Sales tax at 4.6% is money collected from customers
-and passed on, not a cost to manage. Variable overhead at 15% is the line to watch.
-Total overhead is 25% of gross profit, inside the 20 to 30% agencies run [1], but $4k
-of it is travel that is not priced into quotes and $4.6k is meals, groceries,
-reimbursements and similar. Fix those two and this table is better than every peer
-group on every line.
+**Are these healthy?**
+
+- **Product and event staff, 32% together.** Very healthy. Caterers run 28 to 36% on
+  food alone and 55 to 62% on food plus labor [6][7]. Windansea spends about half.
+- **Sales tax, 4.6%.** Collected from customers and passed on. Not a cost to manage.
+- **Variable overhead, 15%.** The line to watch. Total overhead is 25% of gross profit,
+  inside the 20 to 30% agencies run [1], but $4k of it is travel not priced into
+  quotes and $4.6k is meals, groceries and reimbursements.
+- Fix those two and this table beats every peer group on every line.
 
 ### COGS breakdown
 

@@ -24,15 +24,14 @@ def _tr(cells, cls="") -> str:
 def _bench_analysis(r) -> str:
     m = r["margins"]
     return (
-        f'<p class="analysis">Read across the table. On gross margin Windansea keeps {pct(r["gross"])} of every dollar after the coconuts and the '
-        f'people who work the event. That is above the agency range and more than double the wholesale range, because a branded coconut at an '
-        f'event is priced like an activation, not like produce. Labor is {pct(r["labor_today"])} of revenue where agencies run 50 to 70%, so the '
-        f'business is not people heavy even though it delivers with people. Operating margin is where the calendar shows: {pct(m["summer_today"])} '
-        f'in a summer month beats every peer, but the same costs spread over a full year with a quiet winter give {pct(m["year_today"])}, which is '
-        f'ordinary for an agency and good for a wholesaler. Marketing at {pct(r["marketing_pct"], 1)} against a peer range of 8 to 14% is the '
-        f'clearest gap. The summer margin says the product is right. The year margin says the business is not yet buying enough winter revenue to use it.</p>'
+        '<ul class="assume">'
+        f'<li><strong>Gross margin {pct(r["gross"])}.</strong> Above the agency range, double the wholesale range. A branded coconut at an event is priced like an activation, not like produce.</li>'
+        f'<li><strong>Labor {pct(r["labor_today"])}.</strong> Agencies run 50 to 70%. The business delivers with people but is not people heavy.</li>'
+        f'<li><strong>Operating margin {pct(m["summer_today"])} in summer, {pct(m["year_today"])} for the year.</strong> The summer month beats every peer. Spread over a full year with a quiet winter it is ordinary for an agency and good for a wholesaler.</li>'
+        f'<li><strong>Marketing {pct(r["marketing_pct"], 1)}.</strong> Agencies spend 8 to 14%. The clearest gap.</li>'
+        '<li>The summer margin says the product is right. The year margin says the business is not yet buying enough winter revenue to use it.</li>'
+        '</ul>'
     )
-
 
 def _bluf(r) -> str:
     m = r["margins"]
@@ -110,13 +109,13 @@ def _scale(c, r) -> str:
         '<h2>1. Costs that scale with revenue</h2>'
         + _table(["Line", "Avg per month", "% of revenue"], rows)
         + f'<p class="lead">After these costs, every revenue dollar has about {r["kept"] * 100:.0f} cents left to cover fixed costs.</p>'
-        + f'<p class="analysis"><strong>Are these healthy?</strong> Product and event staff together are {pct(r["cogs_all_pct"])} of revenue. '
-        f'Caterers, the closest peers for the cost of putting food in front of people, run 28 to 36% on food alone and 55 to 62% on food plus labor [6][7]. '
-        f'Windansea spends half that, so the first two lines are very healthy. Sales tax at {pct(r["tax_pct"], 1)} is money collected from customers and passed on, '
-        f'not a cost to manage. Variable overhead at {pct(r["var_oh_pct"])} is the line to watch. Total overhead is {pct(r["overhead_of_gp"])} of gross profit, '
-        f'inside the 20 to 30% agencies run [1], but {money(r["travel"])} of it is travel that is not priced into quotes and {money(r["discretionary"])} '
-        f'is meals, groceries, reimbursements and similar. Fix those two and this table is better than every peer group on every line.</p>'
-        f'<h3 class="sect">Product, {money(r["product"])} a month ({pct(r["product_pct"], 1)})</h3>'
+        + '<h3 class="sect">Are these healthy?</h3><ul class="assume">'
+        f'<li><strong>Product and event staff, {pct(r["cogs_all_pct"])} together.</strong> Very healthy. Caterers run 28 to 36% on food alone and 55 to 62% on food plus labor [6][7]. Windansea spends about half.</li>'
+        f'<li><strong>Sales tax, {pct(r["tax_pct"], 1)}.</strong> Collected from customers and passed on. Not a cost to manage.</li>'
+        f'<li><strong>Variable overhead, {pct(r["var_oh_pct"])}.</strong> The line to watch. Total overhead is {pct(r["overhead_of_gp"])} of gross profit, inside the 20 to 30% agencies run [1], '
+        f'but {money(r["travel"])} of it is travel not priced into quotes and {money(r["discretionary"])} is meals, groceries and reimbursements.</li>'
+        '<li>Fix those two and this table beats every peer group on every line.</li></ul>'
+        +         f'<h3 class="sect">Product, {money(r["product"])} a month ({pct(r["product_pct"], 1)})</h3>'
         + _table(["Vendor", "Avg per month"], vendors)
         + f'<h3 class="sect">Event staff, {money(r["staff"])} a month ({pct(r["staff_pct"], 1)})</h3>'
         + _table(["Source", "Avg per month", "% of revenue"] + [P.MONTH_LABELS[m].split(" ")[0] for m in P.MONTHS], staff_rows)
