@@ -10,7 +10,9 @@
   included.
 - **Cash.** $119k after the card balance.
 - **Months of operating if nothing else comes in.** 5.4 months today, 4.0 with the
-  full plan team. 8.1 and 6.0 if the $60k customers owe is collected.
+  full plan team. 8.1 and 6.0 if the $60k customers owe is collected. This assumes no
+  more events are executed. Booked events and revenue for Oct, Nov and Dec still need
+  to be added.
 - **Break even.** $45k of revenue a month today, $61k with the full plan team.
 - **Each revenue dollar.** 32% goes to coconuts, supplies and event staff, 20% to
   sales tax and event overhead, and 49 cents is left for fixed costs and profit.

@@ -57,7 +57,8 @@ def _bluf(r) -> str:
         ('May to Aug 2026 average', f'Revenue {money(r["rev"])} a month. Costs {money(r["var_total"] + r["nut_today"])} a month, everything included.'),
         ('Cash', f'{money(r["cash"])} after the card balance.'),
         ('Months of operating if nothing else comes in', f'{r["months_today"]:.1f} months today, {r["months_plan"]:.1f} with the full plan team. '
-                                                        f'{r["months_ar_today"]:.1f} and {r["months_ar_plan"]:.1f} if the {money(r["ar_total"])} customers owe is collected.'),
+                                                        f'{r["months_ar_today"]:.1f} and {r["months_ar_plan"]:.1f} if the {money(r["ar_total"])} customers owe is collected. '
+                                                        'This assumes no more events are executed. Booked events and revenue for Oct, Nov and Dec still need to be added.'),
         ('Break even', f'{money(r["breakeven_today"])} of revenue a month today, {money(r["breakeven_plan"])} with the full plan team.'),
         ('Each revenue dollar', f'{pct(r["cogs_all_pct"])} goes to coconuts, supplies and event staff, {pct(r["var_pct"] - r["cogs_all_pct"])} to sales tax and event overhead, '
                                 f'and {r["kept"] * 100:.0f} cents is left for fixed costs and profit.'),
