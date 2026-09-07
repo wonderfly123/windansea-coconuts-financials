@@ -2,7 +2,7 @@ import pytest
 
 from src.runway import plan as P
 from src.runway.classify import Rec
-from src.runway.rules import overhead_groups, rules_context, year_revenue
+from src.runway.rules import overhead_groups, rules_context, typical_invoice, year_revenue
 
 W = sum(P.MONTH_WEIGHTS.values())
 
@@ -51,6 +51,7 @@ def _ctx():
         "cash_after": 100000.0,
         "ar": {"total": 20000.0, "count": 4, "rows": [{"amount": 5000.0, "overdue": True}, {"amount": 15000.0, "overdue": False}]},
         "rev_months": {"2026-07": 50000.0, "2026-08": 100000.0},
+        "invoice_avg": 2000.0,
     }
 
 
@@ -80,3 +81,15 @@ def test_rules_context_tightened_variable():
     # drop travel 4000 and discretionary above the 2500 cap (3000)
     assert r["tight_var_pct"] == pytest.approx((50000 - 4000 - 3000) / 100000)
     assert r["tight_breakeven_plan"] == pytest.approx(r["nut_plan"] / r["tight_kept"])
+
+
+def test_typical_invoice_ignores_one_offs_and_other_months():
+    def inv(month, amount):
+        return {"created_at": f"{month}-10T00:00:00Z", "payment_requests": [{"computed_amount_money": {"amount": amount * 100}}]}
+    invoices = [inv("2026-05", 1000), inv("2026-06", 3000), inv("2026-07", 67226), inv("2026-04", 500)]
+    assert typical_invoice(invoices, P.MONTHS) == pytest.approx(2000.0)
+
+
+def test_golden_rule_events():
+    r = rules_context(_ctx())
+    assert r["golden_events"] == round(36800 / 2000)

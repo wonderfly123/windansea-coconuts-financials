@@ -19,6 +19,10 @@
 - **Against peers.** Gross margin 69% beats activation agencies (50 to 60%) and
   specialty wholesalers (20 to 35%). Operating margin 29% in a summer month, 12% for
   the year. Marketing at 0.3% is far below the 8 to 14% agencies spend.
+- **Golden rule.** If the month has less than $45k of events booked, about 22 events at
+  the typical $2,000, the core team works the events themselves and no hourly staff is
+  called. Above that, hourly staff is hired inside the 14% cap and the core team runs
+  operations.
 - **Watch.** $40k of the $60k owed is past due and nobody owns collections.
   Currency Cloud is 14% of the year so far.
 
@@ -81,6 +85,16 @@ wrong in most months. Instead, every cost gets one of two rules:
 | **Total variable** | **$45,900** | **51%** |
 
 After these costs, every revenue dollar has about 49 cents left to cover fixed costs.
+
+**Are these healthy?** Product and event staff together are 32% of revenue. Caterers,
+the closest peers for the cost of putting food in front of people, run 28 to 36% on
+food alone and 55 to 62% on food plus labor [6][7]. Windansea spends half that, so the
+first two lines are very healthy. Sales tax at 4.6% is money collected from customers
+and passed on, not a cost to manage. Variable overhead at 15% is the line to watch.
+Total overhead is 25% of gross profit, inside the 20 to 30% agencies run [1], but $4k
+of it is travel that is not priced into quotes and $4.6k is meals, groceries,
+reimbursements and similar. Fix those two and this table is better than every peer
+group on every line.
 
 ### COGS breakdown
 
@@ -174,7 +188,9 @@ Wholesale stops after September, so winter revenue is events only.
 3. Travel priced into the quote, not budgeted.
 4. Discretionary spend capped at $2,500 a month.
 5. Marketing a flat monthly number, set once.
-6. Fixed monthly costs $22k today, $30k at full plan. Break even revenue $45k a month today, $61k at plan.
+6. Under $45k of events in the month (about 22 events), the core team works them.
+   Above it, hourly staff inside the 14% cap.
+7. Fixed monthly costs $22k today, $30k at full plan. Break even revenue $45k a month today, $61k at plan.
 
 ## Open items / Questions
 
@@ -196,3 +212,5 @@ Benchmark sources:
 3. NYU Stern, Aswath Damodaran, "Margins by Sector (US)", January 2026: Food Wholesalers (13 firms) gross 15.4%, operating 2.8%, net 1.2%; Advertising (52 firms) gross 36.2%, operating 13.3%, net minus 0.3%. https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/margin.html
 4. Mercury, "Marketing agency profit margins": labor 50 to 70% of agency revenue. https://mercury.com/blog/marketing-agency-profit-margins
 5. Promethean Research, "How Profitable are Digital Agencies?", April 2026: 13% after tax net margin in 2025, 14% in 2024, about 15% long run since 2015. https://prometheanresearch.com/how-profitable-are-digital-agencies/
+6. Cucinovo, "Prime Cost and Food Cost % by Restaurant Type": catering food cost 28 to 35%, catering prime cost (food plus labor) 55 to 62%, healthy prime cost 55 to 65%. https://cucinovo.com/blog/food-cost-percentage-by-restaurant-type
+7. Vellin, "Typical Catering Food Cost Percentage Benchmarks": catering food cost 28 to 36%, well managed 25 to 30%, cocktail receptions 25 to 32%. https://vellinapp.com/blog/catering-food-cost-percentage

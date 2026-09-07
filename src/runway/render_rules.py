@@ -66,6 +66,9 @@ def _bluf(r) -> str:
         ('Against peers', f'Gross margin {pct(r["gross"])} beats activation agencies (50 to 60%) and specialty wholesalers (20 to 35%). '
                           f'Operating margin {pct(m["summer_today"])} in a summer month, {pct(m["year_today"])} for the year. '
                           f'Marketing at {pct(r["marketing_pct"], 1)} is far below the 8 to 14% agencies spend.'),
+        ('Golden rule', f'If the month has less than {money(r["breakeven_today"])} of events booked, about {r["golden_events"]} events at the typical '
+                        f'{money(r["invoice_avg"])}, the core team works the events themselves and no hourly staff is called. Above that, hourly staff '
+                        f'is hired inside the {pct(P.RULE_TARGETS["staff_pct"])} cap and the core team runs operations.'),
         ('Watch', f'{money(r["ar_overdue"])} of the {money(r["ar_total"])} owed is past due and nobody owns collections. '
                   f'Currency Cloud is {pct(r["concentration"])} of the year so far.'),
     ]
@@ -106,6 +109,12 @@ def _scale(c, r) -> str:
         '<h2>1. Costs that scale with revenue</h2>'
         + _table(["Line", "Avg per month", "% of revenue"], rows)
         + f'<p class="lead">After these costs, every revenue dollar has about {r["kept"] * 100:.0f} cents left to cover fixed costs.</p>'
+        + f'<p class="analysis"><strong>Are these healthy?</strong> Product and event staff together are {pct(r["cogs_all_pct"])} of revenue. '
+        f'Caterers, the closest peers for the cost of putting food in front of people, run 28 to 36% on food alone and 55 to 62% on food plus labor [6][7]. '
+        f'Windansea spends half that, so the first two lines are very healthy. Sales tax at {pct(r["tax_pct"], 1)} is money collected from customers and passed on, '
+        f'not a cost to manage. Variable overhead at {pct(r["var_oh_pct"])} is the line to watch. Total overhead is {pct(r["overhead_of_gp"])} of gross profit, '
+        f'inside the 20 to 30% agencies run [1], but {money(r["travel"])} of it is travel that is not priced into quotes and {money(r["discretionary"])} '
+        f'is meals, groceries, reimbursements and similar. Fix those two and this table is better than every peer group on every line.</p>'
         f'<h3 class="sect">Product, {money(r["product"])} a month ({pct(r["product_pct"], 1)})</h3>'
         + _table(["Vendor", "Avg per month"], vendors)
         + f'<h3 class="sect">Event staff, {money(r["staff"])} a month ({pct(r["staff_pct"], 1)})</h3>'
@@ -164,6 +173,7 @@ def _rules(r) -> str:
         'Travel priced into the quote, not budgeted.',
         f'Discretionary spend capped at {money(t["discretionary_cap"])} a month.',
         'Marketing a flat monthly number, set once.',
+        f'Under {money(r["breakeven_today"])} of events in the month (about {r["golden_events"]} events), the core team works them. Above it, hourly staff inside the {pct(t["staff_pct"])} cap.',
         f'Fixed monthly costs {money(r["nut_today"])} today, {money(r["nut_plan"])} at full plan. Break even revenue {money(r["breakeven_today"])} a month today, {money(r["breakeven_plan"])} at plan.',
     ]
     return ('<h2>The rules on one line each</h2><div class="tile plan"><ol class="assume">' + "".join(f"<li>{i}</li>" for i in items) + '</ol></div>'

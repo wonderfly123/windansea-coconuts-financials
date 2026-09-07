@@ -33,7 +33,7 @@ def test_render_contents(ctx):
     html = build.render(ctx)
     for needle in ["Money in the bank", "$127,455", "TBD", "Company roles", "Runway, the next twelve months",
                    'data-preset="plan"', "window.RUNWAY", "Sales tax remitted", "How we sell", "Owner: <strong>Trent</strong>", "<title>Windansea Coconuts Runway</title>",
-                   'data-tab="rules"', "<h2>BLUF</h2>", "Months of operating if nothing else comes in", "How we compare to peers", "The rules on one line each", "Break even revenue per month",
+                   'data-tab="rules"', "<h2>BLUF</h2>", "Months of operating if nothing else comes in", "Golden rule", "How we compare to peers", "The rules on one line each", "Break even revenue per month",
                    "Open items / Questions", "Appendix: data basis and sources", "parakeeto.com"]:
         assert needle in html, needle
     # No dashes as pauses in headings or table headers

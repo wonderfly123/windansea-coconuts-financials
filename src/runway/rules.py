@@ -46,6 +46,19 @@ def group_avg(groups, name) -> float:
     return next((g["avg"] for g in groups if g["name"] == name), 0.0)
 
 
+def typical_invoice(invoices, months, cap=20000.0) -> float:
+    """Average Square invoice created in the window months, ignoring one offs above cap."""
+    vals = []
+    for inv in invoices:
+        m = (inv.get("created_at") or "")[:7]
+        if m not in months:
+            continue
+        amt = sum(int(p.get("computed_amount_money", {}).get("amount", 0)) for p in inv.get("payment_requests") or []) / 100
+        if 0 < amt < cap:
+            vals.append(amt)
+    return sum(vals) / len(vals) if vals else 0.0
+
+
 def year_revenue(rev_months: dict, one_off_aug: float) -> float:
     """Actual Jan to Aug plus Sep to Dec tailed off August (minus the one off)."""
     actual = sum(v for m, v in rev_months.items() if m <= "2026-08")
@@ -108,6 +121,8 @@ def rules_context(c: dict) -> dict:
         "breakeven_today": nut_today / kept, "breakeven_plan": nut_plan / kept,
         "months_today": cash / nut_today, "months_plan": cash / nut_plan,
         "months_ar_today": (cash + ar["total"]) / nut_today, "months_ar_plan": (cash + ar["total"]) / nut_plan,
+        "invoice_avg": c.get("invoice_avg", 0.0),
+        "golden_events": round(nut_today / kept / c["invoice_avg"]) if c.get("invoice_avg") else 0,
         "cash": cash, "ar_total": ar["total"], "ar_count": ar["count"],
         "ar_overdue": ar_overdue, "ar_overdue_count": ar_overdue_count,
         "ytd": ytd, "year": year, "concentration": P.ONE_OFF_AUG / ytd if ytd else 0.0,

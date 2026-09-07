@@ -235,6 +235,10 @@ SOURCES = [
      "https://mercury.com/blog/marketing-agency-profit-margins"),
     ("Promethean Research, How Profitable are Digital Agencies?, April 2026: 13% after tax net margin in 2025, 14% in 2024, about 15% long run since 2015.",
      "https://prometheanresearch.com/how-profitable-are-digital-agencies/"),
+    ("Cucinovo, Prime Cost and Food Cost % by Restaurant Type: catering food cost 28 to 35%, catering prime cost (food plus labor) 55 to 62%, healthy prime cost 55 to 65%.",
+     "https://cucinovo.com/blog/food-cost-percentage-by-restaurant-type"),
+    ("Vellin, Typical Catering Food Cost Percentage Benchmarks: catering food cost 28 to 36%, well managed 25 to 30%, cocktail receptions 25 to 32%.",
+     "https://vellinapp.com/blog/catering-food-cost-percentage"),
 ]
 ASSUMPTIONS = [
     "Year estimate: actual Jan to Aug plus Sep to Dec tailed off August (minus Currency Cloud) at 70, 45, 20 and 15%.",
