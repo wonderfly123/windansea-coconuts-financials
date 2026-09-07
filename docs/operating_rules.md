@@ -22,7 +22,7 @@ cited in the appendix.
 
 - Product is 16% of revenue and event staff 14%.
 - Core people are 23% of a summer month.
-- $119k cash after the card balance. 5.4 months of the fixed nut with nothing coming in.
+- $119k cash after the card balance. That covers 5.4 months of fixed costs with no sales.
 
 **Not healthy**
 
@@ -47,14 +47,15 @@ Assumptions:
   marketing agency surveys. Wholesale figures are public distributors and one uncited
   trade blog.
 
-## The idea
+## Why percentages and caps instead of a budget
 
-Revenue is lumpy, so a fixed dollar budget does not work. Every cost is one of two
-kinds:
+Revenue swings from $3k in January to $145k in August, so a fixed dollar budget is
+wrong in most months. Instead, every cost gets one of two rules:
 
-1. **Scales with revenue.** Budgeted as a percentage of sales.
-2. **Fixed nut.** Hits every month whether or not anything sells. Budgeted as a
-   dollar cap.
+1. **Costs that rise and fall with sales** (coconuts, event staff, sales tax, travel)
+   get a target percentage of revenue.
+2. **Costs that are the same every month** (salaried people, software, insurance) get
+   a dollar cap.
 
 ## 1. Costs that scale with revenue
 
@@ -63,11 +64,11 @@ kinds:
 | **COGS, all in** | **$27,300** | **30.3%** |
 | Product (coconuts, supplies, packaging) | $14,500 | 16.2% |
 | Event staff | $12,700 | 14.1% |
-| Sales tax remitted (pass through) | $4,100 | 4.6% |
+| Sales tax paid to the state | $4,100 | 4.6% |
 | Variable overhead (travel, meals, Amazon, reimbursements) | $14,500 | 16.1% |
 | **Total variable** | **$46,000** | **51%** |
 
-Every revenue dollar keeps about 49 cents to cover the fixed nut.
+After these costs, every revenue dollar has about 49 cents left to cover fixed costs.
 
 ### COGS breakdown
 
@@ -121,13 +122,13 @@ With discretionary capped and travel passed through, variable cost drops to abou
 43%, every revenue dollar keeps about 57 cents, and break even at full plan drops
 to about $53,000.
 
-## 2. Fixed nut
+## 2. Fixed monthly costs
 
 | Line | Today | Full plan |
 |---|---:|---:|
 | Core people | $20,700 | $28,800 |
 | Software, insurance, ADP fees, storage | $1,300 | $1,300 |
-| **Zero revenue burn** | **$22,000** | **$30,100** |
+| **Monthly cost with no sales** | **$22,000** | **$30,100** |
 
 Core people today (actual monthly average vs plan):
 
@@ -143,7 +144,7 @@ Core people today (actual monthly average vs plan):
 
 ## 3. Break even and runway
 
-Break even revenue = fixed nut divided by the 49 cents kept per dollar.
+Break even revenue is fixed monthly costs divided by the 49 cents left per dollar.
 
 | | Today | Full plan |
 |---|---:|---:|
@@ -160,12 +161,12 @@ Wholesale stops after September, so winter revenue is events only.
 3. Travel priced into the quote, not budgeted.
 4. Discretionary spend capped at $2,500 a month.
 5. Marketing a flat monthly number, set once.
-6. Fixed nut $22k today, $30k at full plan. Break even $45k today, $61k at plan.
+6. Fixed monthly costs $22k today, $30k at full plan. Break even revenue $45k a month today, $61k at plan.
 
 ## Open items / Questions
 
-- When Trent works events and does branding instead of running the machine, and how
-  slow season prep time is used.
+- When Trent should work events and do branding himself instead of running
+  operations, and how slow season prep time is used.
 - Is the above labor in the variable that says ADP include Trent, Harry, and Juniper?
   No. ADP hourly is everyone on ADP except Harrison, Trent and Juniper. Those three
   are pulled out by name into core people.

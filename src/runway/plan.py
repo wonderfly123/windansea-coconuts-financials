@@ -243,6 +243,6 @@ ASSUMPTIONS = [
     "No public source benchmarks luxury event food carts. Agency figures are digital and marketing agency surveys. Wholesale figures are public distributors and one uncited trade blog.",
 ]
 OPEN_ITEMS = [
-    "When Trent works events and does branding instead of running the machine, and how slow season prep time is used.",
+    "When Trent should work events and do branding himself instead of running operations, and how slow season prep time is used.",
     "Is the ADP hourly line in event staff including Trent, Harrison and Juniper? No. ADP hourly is everyone on ADP except those three, who are pulled out by name into core people.",
 ]

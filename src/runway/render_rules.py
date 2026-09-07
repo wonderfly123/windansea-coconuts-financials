@@ -36,13 +36,13 @@ def _bluf(r) -> str:
     year_math = _table(["", "Amount"], [
         _tr(["2026 revenue estimate", money(r["year"])]),
         _tr([f'Kept after variable costs at {r["kept"] * 100:.0f} cents per dollar', money(r["year"] * r["kept"])]),
-        _tr([f'Fixed nut for 12 months, owners at plan pay ({money(r["core_norm"] + r["fixed_oh"])} a month)', money((r["core_norm"] + r["fixed_oh"]) * 12)]),
+        _tr([f'Fixed monthly costs for 12 months, owners at plan pay ({money(r["core_norm"] + r["fixed_oh"])} a month)', money((r["core_norm"] + r["fixed_oh"]) * 12)]),
         _tr(["Operating profit for the year", f'{money(r["year"] * r["kept"] - (r["core_norm"] + r["fixed_oh"]) * 12)}, {pct(m["year_today"])} of revenue'], "total"),
     ])
     healthy = [
         f'Product is {pct(r["product_pct"])} of revenue and event staff {pct(r["staff_pct"])}.',
         f'Core people are {pct(r["core_pct"])} of a summer month.',
-        f'{money(r["cash"])} cash after the card balance. {r["months_today"]:.1f} months of the fixed nut with nothing coming in.',
+        f'{money(r["cash"])} cash after the card balance. {r["months_today"]:.1f} months of fixed costs with no sales.',
     ]
     not_healthy = [
         f'{money(r["ar_total"])} owed on {r["ar_count"]} open invoices. {money(r["ar_overdue"])} of it, on {r["ar_overdue_count"]} invoices, is past due. Nobody owns accounts receivable.',
@@ -71,7 +71,7 @@ def _scale(c, r) -> str:
         _tr(["<strong>COGS, all in</strong>", f'<strong>{money(r["cogs_all"])}</strong>', f'<strong>{pct(r["cogs_all_pct"], 1)}</strong>']),
         _tr(["Product (coconuts, supplies, packaging)", money(r["product"]), pct(r["product_pct"], 1)]),
         _tr(["Event staff", money(r["staff"]), pct(r["staff_pct"], 1)]),
-        _tr(["Sales tax remitted (pass through)", money(r["tax"]), pct(r["tax_pct"], 1)]),
+        _tr(["Sales tax paid to the state", money(r["tax"]), pct(r["tax_pct"], 1)]),
         _tr(["Variable overhead (travel, meals, Amazon, reimbursements)", money(r["var_oh"]), pct(r["var_oh_pct"], 1)]),
         _tr(["Total variable", money(r["var_total"]), pct(r["var_pct"])], "total"),
     ]
@@ -88,7 +88,7 @@ def _scale(c, r) -> str:
     return (
         '<h2>1. Costs that scale with revenue</h2>'
         + _table(["Line", "Avg per month", "% of revenue"], rows)
-        + f'<p class="lead">Every revenue dollar keeps about {r["kept"] * 100:.0f} cents to cover the fixed nut.</p>'
+        + f'<p class="lead">After these costs, every revenue dollar has about {r["kept"] * 100:.0f} cents left to cover fixed costs.</p>'
         f'<h3 class="sect">Product, {money(r["product"])} a month ({pct(r["product_pct"], 1)})</h3>'
         + _table(["Vendor", "Avg per month"], vendors)
         + f'<h3 class="sect">Event staff, {money(r["staff"])} a month ({pct(r["staff_pct"], 1)})</h3>'
@@ -108,7 +108,7 @@ def _overhead(c, r) -> str:
     return (
         f'<h2>Overhead, {money(r["var_oh"] + r["fixed_oh"])} a month</h2>'
         f'<p class="small">Variable overhead is {money(r["var_oh"])} ({pct(r["var_oh_pct"], 1)}). Most of it is not actually variable. '
-        f'Rows marked fixed ({money(r["fixed_oh"])}) are in the fixed nut below.</p>'
+        f'Rows marked fixed ({money(r["fixed_oh"])}) are in fixed monthly costs below.</p>'
         + _table(["Group", "Avg per month", "What is in it"], rows)
         + f'<p>With discretionary capped at {money(P.RULE_TARGETS["discretionary_cap"])} and travel passed through, variable cost drops to about '
         f'{pct(r["tight_var_pct"])}, every revenue dollar keeps about {r["tight_kept"] * 100:.0f} cents, and break even at full plan drops to about {money(r["tight_breakeven_plan"])}.</p>'
@@ -120,10 +120,10 @@ def _fixed(c, r) -> str:
     nut = [
         _tr(["Core people", money(t["actual_total"]), money(t["plan_total"])]),
         _tr(["Software, insurance, ADP fees, storage, marketing", money(r["fixed_oh"]), money(r["fixed_oh"])]),
-        _tr(["Zero revenue burn", money(r["nut_today"]), money(r["nut_plan"])], "total"),
+        _tr(["Monthly cost with no sales", money(r["nut_today"]), money(r["nut_plan"])], "total"),
     ]
     people = [_tr([e(p["person"]) + f'<div class="small">{e(p["role"])}</div>', money(p["actual"]), money(p["plan_total"])]) for p in t["rows"]]
-    return ('<h2>2. Fixed nut</h2>' + _table(["Line", "Today", "Full plan"], nut)
+    return ('<h2>2. Fixed monthly costs</h2>' + _table(["Line", "Today", "Full plan"], nut)
             + '<h3 class="sect">Core people, actual monthly average vs plan</h3>' + _table(["Person", "Actual", "Plan"], people, "plan"))
 
 
@@ -134,7 +134,7 @@ def _breakeven(r) -> str:
         _tr([f'Same, if the {money(r["ar_total"])} open AR collects', f'{r["months_ar_today"]:.1f}', f'{r["months_ar_plan"]:.1f}']),
     ]
     return ('<h2>3. Break even and runway</h2>'
-            f'<p class="small">Break even revenue = fixed nut divided by the {r["kept"] * 100:.0f} cents kept per dollar.</p>'
+            f'<p class="small">Break even revenue is fixed monthly costs divided by the {r["kept"] * 100:.0f} cents left per dollar.</p>'
             + _table(["", "Today", "Full plan"], rows)
             + '<p>Wholesale stops after September, so winter revenue is events only.</p>')
 
@@ -147,7 +147,7 @@ def _rules(r) -> str:
         'Travel priced into the quote, not budgeted.',
         f'Discretionary spend capped at {money(t["discretionary_cap"])} a month.',
         'Marketing a flat monthly number, set once.',
-        f'Fixed nut {money(r["nut_today"])} today, {money(r["nut_plan"])} at full plan. Break even {money(r["breakeven_today"])} today, {money(r["breakeven_plan"])} at plan.',
+        f'Fixed monthly costs {money(r["nut_today"])} today, {money(r["nut_plan"])} at full plan. Break even revenue {money(r["breakeven_today"])} a month today, {money(r["breakeven_plan"])} at plan.',
     ]
     return ('<h2>The rules on one line each</h2><div class="tile plan"><ol class="assume">' + "".join(f"<li>{i}</li>" for i in items) + '</ol></div>'
             '<h2>Open items / Questions</h2><ul class="assume">' + "".join(f"<li>{e(i)}</li>" for i in P.OPEN_ITEMS) + '</ul>')
@@ -163,7 +163,7 @@ def _appendix(c) -> str:
 def rules_tab(c: dict) -> str:
     r = c["rules"]
     return ('<div class="rules">' + _bluf(r)
-            + '<h2>The idea</h2><p>Revenue is lumpy, so a fixed dollar budget does not work. Every cost is one of two kinds:</p>'
-            '<ol class="assume"><li><strong>Scales with revenue.</strong> Budgeted as a percentage of sales.</li>'
-            '<li><strong>Fixed nut.</strong> Hits every month whether or not anything sells. Budgeted as a dollar cap.</li></ol>'
+            + '<h2>Why percentages and caps instead of a budget</h2><p>Revenue swings from $3k in January to $145k in August, so a fixed dollar budget is wrong in most months. Instead, every cost gets one of two rules:</p>'
+            '<ol class="assume"><li><strong>Costs that rise and fall with sales</strong> (coconuts, event staff, sales tax, travel) get a target percentage of revenue.</li>'
+            '<li><strong>Costs that are the same every month</strong> (salaried people, software, insurance) get a dollar cap.</li></ol>'
             + _scale(c, r) + _overhead(c, r) + _fixed(c, r) + _breakeven(r) + _rules(r) + _appendix(c) + '</div>')
