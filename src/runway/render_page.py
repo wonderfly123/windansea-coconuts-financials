@@ -164,7 +164,8 @@ def _pct(c, key) -> str:
 
 
 def _tile_avg(title, key, c, cls, tipline) -> str:
-    items = [f"{n}: {money(v)}" for n, v in c["tops"][key]]
+    w = sum(P.MONTH_WEIGHTS.values())
+    items = [f"{n}: {money(v / w)} a month" for n, v in c["tops"][key]]
     return (f'<div class="tile">{tip(tipline, items)}<h3>{e(title)}</h3><div class="big">{money(c["avgs"][key])}</div>'
             f'<div class="note">per month, May to Aug 2026 (Aug to the 28th, prorated). <strong>{_pct(c, key)}</strong></div>{bars(c["months"][key], cls)}</div>')
 
