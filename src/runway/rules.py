@@ -42,6 +42,15 @@ def overhead_groups(recs, n=6) -> list:
     return out
 
 
+def vendor_months(recs, section, n=8) -> list:
+    """[(label, {month: total})] for the largest labels in a section, in the window."""
+    months = defaultdict(lambda: {m: 0.0 for m in P.MONTHS})
+    for r in recs:
+        if r.section == section and r.date[:7] in P.MONTH_WEIGHTS:
+            months[norm_label(r.label)][r.date[:7]] += r.amount
+    return sorted(months.items(), key=lambda kv: -sum(kv[1].values()))[:n]
+
+
 def group_avg(groups, name) -> float:
     return next((g["avg"] for g in groups if g["name"] == name), 0.0)
 

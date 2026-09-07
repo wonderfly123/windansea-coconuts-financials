@@ -10,7 +10,7 @@ from src.runway import plan as P
 from src.runway.classify import tag_adp_row, tag_card, tag_db_row, tag_wallet
 from src.runway.render_page import page
 from src.runway.render_projection import projection_section
-from src.runway.rules import overhead_groups, rules_context, typical_invoice
+from src.runway.rules import overhead_groups, rules_context, typical_invoice, vendor_months
 
 OUT = L.ROOT / "docs" / "runway_dashboard.html"
 PAGES = L.ROOT / "docs" / "index.html"  # GitHub Pages copy, full HTML document
@@ -49,6 +49,7 @@ def build_context() -> dict:
         "proj": A.projection_defaults(avgs, rev_2026, CURRENCY_CLOUD, A.overhead_split(recs)),
         "overhead_groups": overhead_groups(recs),
         "invoice_avg": typical_invoice(L.load_invoices(), P.MONTHS),
+        "cogs_vendors": vendor_months(recs, P.COGS),
     }
     ctx["rules"] = rules_context(ctx)
     return ctx

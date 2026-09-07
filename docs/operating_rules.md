@@ -85,17 +85,16 @@ After these costs, every revenue dollar has about 49 cents left to cover fixed c
 
 **Product, $15,600 a month (17.3%)**
 
-| Vendor | Avg per month |
-|---|---:|
-| Sun Hing Foods (coconuts) | $8,070 |
-| Gearheart Industry | $2,480 |
-| Coy's Produce | $2,130 |
-| Amazon (event supplies, split across events) | $1,060 |
-| Ematik Vending Carts | $590 |
-| Alibaba | $440 |
-| Wrap Caviar | $270 |
-| Uline | $200 |
-| Manila Oriental Market | $180 |
+| Vendor | Avg per month | May | Jun | Jul | Aug |
+|---|---:|---:|---:|---:|---:|
+| Sun Hing Foods (coconuts) | $8,070 | $9,638 | $4,800 | $11,393 | $5,655 |
+| Gearheart Industry | $2,480 | $613 | $3,366 | $3,087 | $2,597 |
+| Coy's Produce | $2,130 | $2,734 | $120 | $0 | $5,468 |
+| Amazon (event supplies, split across events) | $1,060 | $1,393 | $2,083 | $602 | $76 |
+| Ematik Vending Carts | $590 | $0 | $0 | $0 | $2,290 |
+| Alibaba | $440 | $0 | $707 | $0 | $1,022 |
+| Wrap Caviar | $270 | $167 | $442 | $296 | $139 |
+| Uline | $200 | $0 | $222 | $0 | $546 |
 
 **Event staff, $12,700 a month (14.1%)**
 

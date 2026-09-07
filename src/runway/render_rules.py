@@ -94,7 +94,8 @@ def _scale(c, r) -> str:
         _tr(["Total variable", money(r["var_total"]), pct(r["var_pct"])], "total"),
     ]
     w = sum(P.MONTH_WEIGHTS.values())
-    vendors = [_tr([e(n), money(v / w)]) for n, v in c["tops"][P.COGS]]
+    month_heads = [P.MONTH_LABELS[m].split(" ")[0] for m in P.MONTHS]
+    vendors = [_tr([e(n), money(sum(mo.values()) / w)] + [money(mo[m]) for m in P.MONTHS]) for n, mo in c["cogs_vendors"]]
     names = {P.SUB_ADP_HOURLY: "ADP hourly (W-2 event staff)", P.SUB_VENMO: "Venmo, Apple Cash, Tremendous",
              P.SUB_CONTRACTOR: "Contractors (Indico Thread, Nathan Zini, Josh Escalante)"}
     staff_rows = []
@@ -114,9 +115,9 @@ def _scale(c, r) -> str:
         f'but {money(r["travel"])} of it is travel not priced into quotes and {money(r["discretionary"])} is meals, groceries and reimbursements.</li>'
         '<li>Fix those two and this table beats every peer group on every line.</li></ul>'
         +         f'<h3 class="sect">Product, {money(r["product"])} a month ({pct(r["product_pct"], 1)})</h3>'
-        + _table(["Vendor", "Avg per month"], vendors)
+        + _table(["Vendor", "Avg per month"] + month_heads, vendors)
         + f'<h3 class="sect">Event staff, {money(r["staff"])} a month ({pct(r["staff_pct"], 1)})</h3>'
-        + _table(["Source", "Avg per month", "% of revenue"] + [P.MONTH_LABELS[m].split(" ")[0] for m in P.MONTHS], staff_rows)
+        + _table(["Source", "Avg per month", "% of revenue"] + month_heads, staff_rows)
         + f'<p>Targets: product at or under {pct(t["product_pct"])}. Event staff at or under {pct(t["staff_pct"])}, quoted per event as '
         'staff hours times rate divided by coconut count before the event is booked.</p>'
     )

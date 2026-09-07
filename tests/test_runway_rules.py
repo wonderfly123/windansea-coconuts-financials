@@ -2,7 +2,7 @@ import pytest
 
 from src.runway import plan as P
 from src.runway.classify import Rec
-from src.runway.rules import overhead_groups, rules_context, typical_invoice, year_revenue
+from src.runway.rules import overhead_groups, rules_context, typical_invoice, vendor_months, year_revenue
 
 W = sum(P.MONTH_WEIGHTS.values())
 
@@ -93,3 +93,11 @@ def test_typical_invoice_ignores_one_offs_and_other_months():
 def test_golden_rule_events():
     r = rules_context(_ctx())
     assert r["golden_events"] == round(36800 / 2000)
+
+
+def test_vendor_months_groups_and_sorts():
+    recs = [rec("2026-05-01", 100, P.COGS, "", "SUN HING FOODS, INC."), rec("2026-07-01", 50, P.COGS, "", "Sun Hing Foods"),
+            rec("2026-06-01", 500, P.COGS, "", "Coy's Produce Co"), rec("2026-06-01", 999, P.OVERHEAD, "", "Uber")]
+    out = vendor_months(recs, P.COGS)
+    assert out[0][0] == "Coy's Produce Co" and out[0][1]["2026-06"] == 500
+    assert out[1][0] == "Sun Hing Foods" and out[1][1] == {"2026-05": 100, "2026-06": 0, "2026-07": 50, "2026-08": 0}
