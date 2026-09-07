@@ -99,6 +99,15 @@ details summary{cursor:pointer;color:var(--sea);font-weight:500;margin-top:8px}
 .callout{margin:10px 0;font-size:16px}.callout .bad{color:var(--bad);font-weight:600}.callout .good{color:var(--sea);font-weight:600}
 .small{font-size:13px;color:var(--muted)}
 .review td{font-size:13px}
+.rules .lead{font-size:17px;max-width:76ch;margin:8px 0 12px}
+.rules p{max-width:76ch}
+.rules h3.sect{margin:22px 0 8px;text-transform:none;letter-spacing:0;font-size:15px;color:var(--ink)}
+.rules .bench td:first-child{min-width:220px}.rules .bench td{font-size:14px}
+.rules .tile.bad{border-color:var(--bad)}
+.rules details{margin:10px 0}.rules .appendix{margin-top:36px;border-top:1px solid var(--line);padding-top:10px}
+.rules .appendix a{color:var(--sea);word-break:break-all}
+.rules .assume li{margin:6px 0}
+.rules .grid{margin-top:14px}
 @media (prefers-reduced-motion: no-preference){.tile{transition:border-color .15s}}
 """
 
@@ -244,12 +253,15 @@ def roles_tab() -> str:
 
 
 def page(c, projection_html, projection_js) -> str:
+    from src.runway.render_rules import rules_tab  # local import: render_rules imports money from here
     return (
         f'<title>Windansea Coconuts Runway</title>{FONTS}<style>{CSS}</style>'
         '<div class="wrap">'
-        f'<h1>Windansea Coconuts, runway</h1><p class="sub">Data as of {e(c["as_of"])}. Ramp, Square and ADP.</p>'
-        '<div class="tabs" role="tablist"><button class="on" data-tab="dash" role="tab">Dashboard</button><button data-tab="gtm" role="tab">How we sell</button><button data-tab="roles" role="tab">Company roles</button></div>'
-        f'<section class="tab on" id="tab-dash">{dashboard_tab(c, projection_html)}</section>'
+        f'<h1>Windansea Coconuts, operating rules instead of a budget</h1><p class="sub">Data as of {e(c["as_of"])}. Ramp, Square and ADP.</p>'
+        '<div class="tabs" role="tablist"><button class="on" data-tab="rules" role="tab">Operating rules</button><button data-tab="dash" role="tab">Detail</button>'
+        '<button data-tab="gtm" role="tab">How we sell</button><button data-tab="roles" role="tab">Company roles</button></div>'
+        f'<section class="tab on" id="tab-rules">{rules_tab(c)}</section>'
+        f'<section class="tab" id="tab-dash">{dashboard_tab(c, projection_html)}</section>'
         f'<section class="tab" id="tab-gtm">{_gtm()}</section>'
         f'<section class="tab" id="tab-roles">{roles_tab()}</section>'
         '</div>'

@@ -1,0 +1,169 @@
+"""HTML for the Operating rules tab. Follows docs/operating_rules.md section by section."""
+
+from html import escape as e
+
+from src.runway import plan as P
+from src.runway.render_page import money
+
+
+def pct(v, digits=0) -> str:
+    return f"{v * 100:.{digits}f}%"
+
+
+def _table(head, rows, cls="") -> str:
+    th = "".join(f'<th class="{"num" if i else ""}">{e(h)}</th>' for i, h in enumerate(head))
+    body = "".join(rows)
+    return f'<div class="tile {cls}"><div class="tscroll"><table><thead><tr>{th}</tr></thead><tbody>{body}</tbody></table></div></div>'
+
+
+def _tr(cells, cls="") -> str:
+    tds = "".join(f'<td class="{"num" if i else ""}">{c}</td>' for i, c in enumerate(cells))
+    return f'<tr class="{cls}">{tds}</tr>'
+
+
+def _bluf(r) -> str:
+    m = r["margins"]
+    win = {
+        "gross": pct(r["gross"]),
+        "labor": f'{pct(r["labor_today"])} today, {pct(r["labor_plan"])} with the full plan team',
+        "operating": (f'{pct(m["summer_today"])} summer, {pct(m["year_today"])} for the year. With the full plan team: '
+                      f'{pct(m["summer_plan"])} summer, {pct(abs(m["year_plan"]))} {"loss" if m["year_plan"] < 0 else "profit"} for the year'),
+        "after_tax": f'{pct(m["summer_today_after_tax"])} summer, {pct(m["year_today_after_tax"])} for the year',
+        "marketing": pct(r["marketing_pct"], 1),
+    }
+    rows = [_tr([f'<strong>{e(b["metric"])}.</strong> <span class="small">{e(b["what"])}</span>', win[b["key"]], e(b["agency"]), e(b["wholesale"])])
+            for b in P.BENCHMARKS]
+    year_math = _table(["", "Amount"], [
+        _tr(["2026 revenue estimate", money(r["year"])]),
+        _tr([f'Kept after variable costs at {r["kept"] * 100:.0f} cents per dollar', money(r["year"] * r["kept"])]),
+        _tr([f'Fixed nut for 12 months, owners at plan pay ({money(r["core_norm"] + r["fixed_oh"])} a month)', money((r["core_norm"] + r["fixed_oh"]) * 12)]),
+        _tr(["Operating profit for the year", f'{money(r["year"] * r["kept"] - (r["core_norm"] + r["fixed_oh"]) * 12)}, {pct(m["year_today"])} of revenue'], "total"),
+    ])
+    healthy = [
+        f'Product is {pct(r["product_pct"])} of revenue and event staff {pct(r["staff_pct"])}.',
+        f'Core people are {pct(r["core_pct"])} of a summer month.',
+        f'{money(r["cash"])} cash after the card balance. {r["months_today"]:.1f} months of the fixed nut with nothing coming in.',
+    ]
+    not_healthy = [
+        f'{money(r["ar_total"])} owed on {r["ar_count"]} open invoices. {money(r["ar_overdue"])} of it, on {r["ar_overdue_count"]} invoices, is past due. Nobody owns accounts receivable.',
+        f'{money(r["discretionary"])} a month of overhead is restaurants, groceries, Amazon, clothing and reimbursements. {money(r["travel"])} a month is travel that is not priced into quotes.',
+        f'Harrison took about {money(r["harrison_actual"])} a month against a {money(r["harrison_plan"])} plan.',
+        f'Marketing is {pct(r["marketing_pct"], 1)} of revenue. Edy at {money(r["edy_plan"])} would be {pct(r["edy_pct"], 1)} of a summer month.',
+        f'One deal, Currency Cloud at {money(P.ONE_OFF_AUG)}, is {pct(r["concentration"])} of the year so far.',
+    ]
+    li = lambda items: "".join(f"<li>{i}</li>" for i in items)
+    return (
+        '<h2>BLUF: how healthy the business is</h2>'
+        '<p class="lead">Strong product, loose back office. Margins beat both peer groups, cash covers five months of fixed cost, '
+        'and the salaried team is affordable. The weak spots are collections, spending not tied to any event, owner draws above plan, and no marketing.</p>'
+        f'<p class="small">Each row is a share of revenue. Windansea is the May to Aug 2026 average, {money(r["rev"])} a month. '
+        'Where the full year differs, the year estimate is shown too. Peer figures are cited in the appendix at the bottom.</p>'
+        + _table(["What is measured", "Windansea", "Brand activation agencies", "Specialty food wholesale"], rows, "bench")
+        + '<details><summary>Where the year number comes from</summary>' + year_math + '</details>'
+        f'<div class="grid g2"><div class="tile good"><h3>Healthy</h3><ul class="assume">{li(healthy)}</ul></div>'
+        f'<div class="tile bad"><h3>Not healthy</h3><ul class="assume">{li(not_healthy)}</ul></div></div>'
+        '<details><summary>Assumptions</summary><ul class="assume">' + li(e(x) for x in P.ASSUMPTIONS) + '</ul></details>'
+    )
+
+
+def _scale(c, r) -> str:
+    rows = [
+        _tr(["<strong>COGS, all in</strong>", f'<strong>{money(r["cogs_all"])}</strong>', f'<strong>{pct(r["cogs_all_pct"], 1)}</strong>']),
+        _tr(["Product (coconuts, supplies, packaging)", money(r["product"]), pct(r["product_pct"], 1)]),
+        _tr(["Event staff", money(r["staff"]), pct(r["staff_pct"], 1)]),
+        _tr(["Sales tax remitted (pass through)", money(r["tax"]), pct(r["tax_pct"], 1)]),
+        _tr(["Variable overhead (travel, meals, Amazon, reimbursements)", money(r["var_oh"]), pct(r["var_oh_pct"], 1)]),
+        _tr(["Total variable", money(r["var_total"]), pct(r["var_pct"])], "total"),
+    ]
+    vendors = [_tr([e(n), money(v)]) for n, v in c["tops"][P.COGS]]
+    names = {P.SUB_ADP_HOURLY: "ADP hourly (W-2 event staff)", P.SUB_VENMO: "Venmo, Apple Cash, Tremendous",
+             P.SUB_CONTRACTOR: "Contractors (Indico Thread, Nathan Zini, Josh Escalante)"}
+    w = sum(P.MONTH_WEIGHTS.values())
+    staff_rows = []
+    for k in (P.SUB_ADP_HOURLY, P.SUB_VENMO, P.SUB_CONTRACTOR):
+        mo = c["noncore_subs"].get(k, {m: 0.0 for m in P.MONTHS})
+        avg = sum(mo.values()) / w
+        staff_rows.append(_tr([names[k], money(avg), pct(avg / r["rev"], 1)] + [money(mo[m]) for m in P.MONTHS]))
+    t = P.RULE_TARGETS
+    return (
+        '<h2>1. Costs that scale with revenue</h2>'
+        + _table(["Line", "Avg per month", "% of revenue"], rows)
+        + f'<p class="lead">Every revenue dollar keeps about {r["kept"] * 100:.0f} cents to cover the fixed nut.</p>'
+        f'<h3 class="sect">Product, {money(r["product"])} a month ({pct(r["product_pct"], 1)})</h3>'
+        + _table(["Vendor", "Avg per month"], vendors)
+        + f'<h3 class="sect">Event staff, {money(r["staff"])} a month ({pct(r["staff_pct"], 1)})</h3>'
+        + _table(["Source", "Avg per month", "% of revenue"] + [P.MONTH_LABELS[m].split(" ")[0] for m in P.MONTHS], staff_rows)
+        + f'<p>Targets: product at or under {pct(t["product_pct"])}. Event staff at or under {pct(t["staff_pct"])}, quoted per event as '
+        'staff hours times rate divided by coconut count before the event is booked.</p>'
+    )
+
+
+def _overhead(c, r) -> str:
+    rows = []
+    for g in c["overhead_groups"]:
+        items = ", ".join(f'{e(l)} {money(v)}' for l, v in g["items"])
+        note = P.OVERHEAD_GROUP_NOTES.get(g["name"], "")
+        tag = ' <span class="pill nothired">fixed</span>' if g["fixed"] else ""
+        rows.append(_tr([f'<strong>{e(g["name"])}</strong>{tag}' + (f'<div class="small">{e(note)}</div>' if note else ""), money(g["avg"]), f'<span class="small">{items}</span>']))
+    return (
+        f'<h2>Overhead, {money(r["var_oh"] + r["fixed_oh"])} a month</h2>'
+        f'<p class="small">Variable overhead is {money(r["var_oh"])} ({pct(r["var_oh_pct"], 1)}). Most of it is not actually variable. '
+        f'Rows marked fixed ({money(r["fixed_oh"])}) are in the fixed nut below.</p>'
+        + _table(["Group", "Avg per month", "What is in it"], rows)
+        + f'<p>With discretionary capped at {money(P.RULE_TARGETS["discretionary_cap"])} and travel passed through, variable cost drops to about '
+        f'{pct(r["tight_var_pct"])}, every revenue dollar keeps about {r["tight_kept"] * 100:.0f} cents, and break even at full plan drops to about {money(r["tight_breakeven_plan"])}.</p>'
+    )
+
+
+def _fixed(c, r) -> str:
+    t = c["core"]
+    nut = [
+        _tr(["Core people", money(t["actual_total"]), money(t["plan_total"])]),
+        _tr(["Software, insurance, ADP fees, storage, marketing", money(r["fixed_oh"]), money(r["fixed_oh"])]),
+        _tr(["Zero revenue burn", money(r["nut_today"]), money(r["nut_plan"])], "total"),
+    ]
+    people = [_tr([e(p["person"]) + f'<div class="small">{e(p["role"])}</div>', money(p["actual"]), money(p["plan_total"])]) for p in t["rows"]]
+    return ('<h2>2. Fixed nut</h2>' + _table(["Line", "Today", "Full plan"], nut)
+            + '<h3 class="sect">Core people, actual monthly average vs plan</h3>' + _table(["Person", "Actual", "Plan"], people, "plan"))
+
+
+def _breakeven(r) -> str:
+    rows = [
+        _tr(["Break even revenue per month", money(r["breakeven_today"]), money(r["breakeven_plan"])]),
+        _tr([f'Months of cash if nothing sells ({money(r["cash"])} after card balance)', f'{r["months_today"]:.1f}', f'{r["months_plan"]:.1f}']),
+        _tr([f'Same, if the {money(r["ar_total"])} open AR collects', f'{r["months_ar_today"]:.1f}', f'{r["months_ar_plan"]:.1f}']),
+    ]
+    return ('<h2>3. Break even and runway</h2>'
+            f'<p class="small">Break even revenue = fixed nut divided by the {r["kept"] * 100:.0f} cents kept per dollar.</p>'
+            + _table(["", "Today", "Full plan"], rows)
+            + '<p>Wholesale stops after September, so winter revenue is events only.</p>')
+
+
+def _rules(r) -> str:
+    t = P.RULE_TARGETS
+    items = [
+        f'Product COGS at or under {pct(t["product_pct"])} of revenue.',
+        f'Event staff at or under {pct(t["staff_pct"])} of revenue, quoted per event before booking.',
+        'Travel priced into the quote, not budgeted.',
+        f'Discretionary spend capped at {money(t["discretionary_cap"])} a month.',
+        'Marketing a flat monthly number, set once.',
+        f'Fixed nut {money(r["nut_today"])} today, {money(r["nut_plan"])} at full plan. Break even {money(r["breakeven_today"])} today, {money(r["breakeven_plan"])} at plan.',
+    ]
+    return ('<h2>The rules on one line each</h2><div class="tile plan"><ol class="assume">' + "".join(f"<li>{i}</li>" for i in items) + '</ol></div>'
+            '<h2>Open items / Questions</h2><ul class="assume">' + "".join(f"<li>{e(i)}</li>" for i in P.OPEN_ITEMS) + '</ul>')
+
+
+def _appendix(c) -> str:
+    src = "".join(f'<li>{e(t)} <a href="{e(u)}">{e(u)}</a></li>' for t, u in P.SOURCES)
+    return ('<details class="appendix"><summary>Appendix: data basis and sources</summary>'
+            f'<p class="small">Windansea figures: {e(P.WINDOW_START)} to {e(c["as_of"])} actuals from Ramp (card and checking), Square payouts and ADP. '
+            'August prorated to a full month.</p><ol class="assume small">' + src + '</ol></details>')
+
+
+def rules_tab(c: dict) -> str:
+    r = c["rules"]
+    return ('<div class="rules">' + _bluf(r)
+            + '<h2>The idea</h2><p>Revenue is lumpy, so a fixed dollar budget does not work. Every cost is one of two kinds:</p>'
+            '<ol class="assume"><li><strong>Scales with revenue.</strong> Budgeted as a percentage of sales.</li>'
+            '<li><strong>Fixed nut.</strong> Hits every month whether or not anything sells. Budgeted as a dollar cap.</li></ol>'
+            + _scale(c, r) + _overhead(c, r) + _fixed(c, r) + _breakeven(r) + _rules(r) + _appendix(c) + '</div>')

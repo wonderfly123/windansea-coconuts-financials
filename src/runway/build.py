@@ -10,11 +10,12 @@ from src.runway import plan as P
 from src.runway.classify import tag_adp_row, tag_card, tag_db_row, tag_wallet
 from src.runway.render_page import page
 from src.runway.render_projection import projection_section
+from src.runway.rules import overhead_groups, rules_context
 
 OUT = L.ROOT / "docs" / "runway_dashboard.html"
 PAGES = L.ROOT / "docs" / "index.html"  # GitHub Pages copy, full HTML document
 JS = Path(__file__).with_name("projection.js")
-CURRENCY_CLOUD = 67226.0
+CURRENCY_CLOUD = P.ONE_OFF_AUG
 
 
 def build_context() -> dict:
@@ -34,7 +35,7 @@ def build_context() -> dict:
     conn.close()
     rev_2026.update({m: months[P.REVENUE][m] / P.MONTH_WEIGHTS[m] for m in P.MONTHS})
 
-    return {
+    ctx = {
         "as_of": balance.get("as_of", P.WINDOW_END),
         "cash": cash, "card_owed": owed, "cash_after": cash - owed,
         "ar": A.ar_summary(L.load_invoices(), P.WINDOW_END),
@@ -46,7 +47,10 @@ def build_context() -> dict:
         "rev_months": rev_2026,
         "overhead_split": A.overhead_split(recs),
         "proj": A.projection_defaults(avgs, rev_2026, CURRENCY_CLOUD, A.overhead_split(recs)),
+        "overhead_groups": overhead_groups(recs),
     }
+    ctx["rules"] = rules_context(ctx)
+    return ctx
 
 
 def render(ctx: dict) -> str:

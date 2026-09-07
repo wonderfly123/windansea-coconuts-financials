@@ -2,67 +2,50 @@
 
 ## BLUF: how healthy the business is
 
-Windansea is a healthy small business with a strong product and a loose back office.
-It keeps more of each dollar than the agencies and wholesalers it resembles, it has
-cash, and its salaried team is affordable. The weak spots are collections, spending
-that is not tied to any event, owner draws above plan, and almost no marketing.
+Strong product, loose back office. Margins beat both peer groups, cash covers five
+months of fixed cost, and the salaried team is affordable. The weak spots are
+collections, spending not tied to any event, owner draws above plan, and no marketing.
 
-**How the margins compare.** Each row is a share of revenue. "Summer month" is the
-May to Aug average of about $90k. "2026 year" is an estimate for the full calendar
-year. Peer figures are cited in the appendix.
+Each row is a share of revenue. Windansea is the May to Aug 2026 average, about $90k
+a month. Where the full year differs, the year estimate is shown too. Peer figures are
+cited in the appendix.
 
-| What is measured | Windansea, summer month | Windansea, 2026 year | Brand activation agencies | Specialty food wholesale |
-|---|---:|---:|---:|---:|
-| **Gross margin.** What is left after paying for the coconuts and the people who work the event. Shows whether pricing covers the cost of delivering. | 70% | 70% | 50 to 60% [1] | 20 to 35% [2], 15% for public distributors [3] |
-| **Labor.** Event staff plus the salaried team, as a share of revenue. Shows how people heavy the business is. | 33% (46% with the full plan team) | 33% | 50 to 70% [4] | not benchmarked |
-| **Operating margin.** What is left after every cost including owner salaries, before income tax. Shows whether the whole business, not just the product, makes money. | 29% (16% with the full plan team) | 11% (a 13% loss with the full plan team) | 13% public agencies [3], 20% or better well run [1] | 3% public distributors [3], 4 to 8% specialty [2] |
-| **After tax margin.** Operating margin after a 35% income tax reserve. The number to compare with published net margins. | 19% | 7% | 13% in 2025, 15% long run [5] | 1% public distributors [3] |
-| **Marketing.** Ads, PR and social as a share of revenue. Shows how much growth is being bought. | 0.3% | 0.3% | 8 to 14% [1] | not benchmarked |
+| What is measured | Windansea | Brand activation agencies | Specialty food wholesale |
+|---|---:|---:|---:|
+| **Gross margin.** Revenue minus coconuts, supplies and the people who work the event. | 70% | 50 to 60% [1] | 20 to 35% [2], 15% public distributors [3] |
+| **Labor.** Event staff plus the salaried team. | 33% today, 46% with the full plan team | 50 to 70% [4] | not benchmarked |
+| **Operating margin.** Revenue minus every cost including owner salaries, before income tax. | 29% summer, 12% for the year. With the full plan team: 16% summer, 13% loss for the year | 13% public agencies [3], 20% or better well run [1] | 3% public distributors [3], 4 to 8% specialty [2] |
+| **After tax margin.** Operating margin after a 35% income tax reserve. | 19% summer, 8% for the year | 13% in 2025, 15% long run [5] | 1% public distributors [3] |
+| **Marketing.** Ads, PR and social. | 0.3% | 8 to 14% [1] | not benchmarked |
 
-**What is healthy**
+**Healthy**
 
-- **Pricing covers delivery with room to spare.** Product is 16% of revenue and event
-  staff 14%. A 70% gross margin is agency territory, not produce territory.
-- **The salaried team is affordable.** Core people are 23% of a summer month. Even with
-  the full plan team, labor stays under the 50 to 70% agencies run.
-- **There is cash.** $119k after the card balance covers 5.4 months of the fixed nut
-  with nothing coming in.
+- Product is 16% of revenue and event staff 14%.
+- Core people are 23% of a summer month.
+- $119k cash after the card balance. 5.4 months of the fixed nut with nothing coming in.
 
-**What is not**
+**Not healthy**
 
-- **Collections are behind.** $60k is owed on 37 open invoices and $40k of it, on 22
-  invoices, is past due. Nobody owns accounts receivable.
-- **Overhead is loose.** Overhead is 25% of gross profit, inside the 20 to 30% agencies
-  run, but $5.5k a month of it is restaurants, groceries, Amazon, clothing and
-  reimbursements, and $4k is travel that is not priced into quotes.
-- **Owner draws run above plan.** Harrison took about $9,900 a month against a $6,500
-  plan. The extra $3,400 is affordable in a $90k month and not in a $20k month.
-- **Growth is not being bought.** Marketing is 0.3% of revenue against a peer range of
-  8 to 14%. Edy at $3,250 would be 3.6% of a summer month.
-- **Revenue is concentrated.** One deal, Currency Cloud at $67k, is 14% of the year so
-  far.
-- **The full plan team does not fit this year's revenue.** At $28,800 a month of core
-  people, 2026 as estimated loses about $76k.
+- $60k owed on 37 open invoices. $40k of it, on 22 invoices, is past due. Nobody owns
+  accounts receivable.
+- $5.7k a month of overhead is restaurants, groceries, Amazon, clothing and
+  reimbursements. $4k a month is travel that is not priced into quotes.
+- Harrison took about $9,900 a month against a $6,500 plan.
+- Marketing is 0.3% of revenue. Edy at $3,250 would be 3.6% of a summer month.
+- One deal, Currency Cloud at $67k, is 14% of the year so far.
 
 Assumptions:
 
-- Revenue is a $90k summer month (May to Aug average) or an estimated $582k for 2026
-  (actual Jan to Aug $465k, Sep to Dec tailed off August at 70, 45, 20 and 15%).
-  Currency Cloud $67k is included as a one off.
-- Owner pay uses plan numbers as a market salary: Harrison $6,500, Jordan $2,700.
-  Harrison's actual draws above plan (about $3,400 a month) are treated as
-  distributions, not cost. Trent, Juniper and Tim are at actuals. "Full plan" adds
+- Year estimate: actual Jan to Aug $465k plus Sep to Dec tailed off August (minus
+  Currency Cloud) at 70, 45, 20 and 15%, for $582k.
+- Owner pay at plan: Harrison $6,500, Jordan $2,700. Draws above plan are
+  distributions, not cost. Trent, Juniper and Tim at actuals. "Full plan team" adds
   the Ops Manager and Edy and moves Trent to $9,125.
-- Gross margin subtracts product and event staff only. Delivery margin for the agency
-  comparison also subtracts Trent and Harrison at plan, which gives 58%.
-- Cost ratios (COGS, staff, sales tax, variable overhead) are held at summer levels
-  across the year. Winter events probably run higher travel and lower wholesale
-  product cost, which roughly offset.
-- Sales tax collected sits in revenue and the remittance is a cost. Profit dollars
-  are the same either way.
-- The peer sets are imperfect. No public source benchmarks luxury event food carts.
-  Agency numbers come from digital and marketing agency surveys. Wholesale numbers
-  are public distributors and one uncited trade blog, flagged below.
+- Cost ratios held at summer levels across the year.
+- Sales tax collected is in revenue and the remittance is a cost.
+- No public source benchmarks luxury event food carts. Agency figures are digital and
+  marketing agency surveys. Wholesale figures are public distributors and one uncited
+  trade blog.
 
 ## The idea
 
@@ -109,9 +92,8 @@ Every revenue dollar keeps about 49 cents to cover the fixed nut.
 | Venmo, Apple Cash, Tremendous | $3,450 | 3.8% | $5,747 | $1,274 | $6,063 | $381 |
 | Contractors (Indico Thread, Nathan Zini, Josh Escalante) | $2,150 | 2.4% | $4,000 | $979 | $2,892 | $516 |
 
-Targets: product at or under 16%, aiming for 15%. Event staff at or under 14%. Per
-event that means staff hours times rate divided by coconut count, quoted against the
-14% number before the event is booked.
+Targets: product at or under 16%. Event staff at or under 14%, quoted per event as
+staff hours times rate divided by coconut count before the event is booked.
 
 ### Variable overhead, $14,500 a month (16.1%)
 
@@ -120,25 +102,24 @@ Most of this is not actually variable.
 | Group | Avg per month | What is in it |
 |---|---:|---|
 | Travel | $4,000 | Airlines $1,125, car rental $660, lodging $560, rideshare $420, fuel $740, travel misc $460, parking $75 |
-| Discretionary | $5,500 | Restaurants $1,250, groceries $630, Amazon and general merchandise $1,500, reimbursements $1,770, entertainment, clothing, alcohol |
+| Discretionary | $5,700 | Restaurants $1,250, groceries $630, Amazon and general merchandise $1,500, reimbursements $1,770, entertainment, clothing, alcohol |
 | Bill pay to individuals | $3,600 | Ariana Cohen, Solo Systems, Miguel Flores Photography, Jenn Kham, John Barron, others |
 | Professional services | $850 | Coach Roach Consulting $670 |
 | Marketing and ads | $300 | VPR, The Knot, Facebook Ads, Imprint Events |
-| Everything else | $250 | Shipping, storage, car wash, electronics, fines |
+| Everything else | $370 | Shipping, storage, car wash, electronics, fines |
 
 Rules:
 
-- **Travel is not a budget line.** Price it into each out of town quote at cost plus
-  margin and target zero on local events.
-- **Discretionary gets a flat cap.** Something like $2,500 a month.
-- **Bill pay to individuals** needs a look. If these are event workers, they are event
-  staff COGS. If they are recurring help, they are core people.
-- **Marketing and ads** is the one line that should be a flat monthly number. Today it
-  is $300. The real cost is Edy at $3,250 once hired.
+- **Travel** is priced into each out of town quote at cost plus margin. Zero on local
+  events.
+- **Discretionary** is capped at $2,500 a month.
+- **Bill pay to individuals** needs a look. Event workers are event staff COGS.
+  Recurring help is core people.
+- **Marketing and ads** is a flat monthly number. Today $300. Edy is $3,250 once hired.
 
-If discretionary is capped and travel is passed through, variable cost drops to about
-40%, every revenue dollar keeps about 60 cents, and break even at full plan drops
-toward $50,000.
+With discretionary capped and travel passed through, variable cost drops to about
+43%, every revenue dollar keeps about 57 cents, and break even at full plan drops
+to about $53,000.
 
 ## 2. Fixed nut
 
@@ -181,16 +162,18 @@ Wholesale stops after September, so winter revenue is events only.
 5. Marketing a flat monthly number, set once.
 6. Fixed nut $22k today, $30k at full plan. Break even $45k today, $61k at plan.
 
-## Open items for Harrison and Jordan
+## Open items / Questions
 
-- When does Trent work events and do branding instead of running the machine, and
-  how is slow season prep time used. Not a rule yet.
+- When Trent works events and does branding instead of running the machine, and how
+  slow season prep time is used.
+- Is the above labor in the variable that says ADP include Trent, Harry, and Juniper?
+  No. ADP hourly is everyone on ADP except Harrison, Trent and Juniper. Those three
+  are pulled out by name into core people.
 
 ## Appendix: data basis and sources
 
 Windansea figures: May 1 to Aug 28, 2026 actuals from Ramp (card and checking), Square payouts
-and ADP. August prorated to a full month. Revenue averaged about $90k a month over
-the window. Cash figures as of Aug 28, 2026.
+and ADP. August prorated to a full month. Cash figures as of Aug 28, 2026.
 
 Benchmark sources:
 

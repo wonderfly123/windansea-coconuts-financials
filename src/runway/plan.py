@@ -184,3 +184,65 @@ GTM = [
      "examples": ["Michael Kang wedding", "Citreno corporate event", "Clark Sandcastle", "real estate events", "AI on the Lot", "Foodbeast"],
      "lever": "The events multiplier from ads and organic in the Dashboard runway."},
 ]
+
+
+# Operating rules tab (Jordan, Sep 6 2026) -------------------------------------------
+ONE_OFF_AUG = 67226.0  # Currency Cloud, Aug 5 2026, treated as a one off
+OWNER_KEYS = ("harrison", "jordan")  # margins use plan pay for these, actuals for everyone else
+RULE_TARGETS = {"product_pct": 0.16, "staff_pct": 0.14, "discretionary_cap": 2500.0}
+OVERHEAD_GROUPS = [  # (group, lower case subs); checked in order before the fixed rule
+    ("Travel", ["airlines", "car rental", "lodging", "taxi and rideshare", "rideshareandtaxis",
+                "travel & transportation", "travel misc", "fuel and gas", "fuelandgas", "parking"]),
+    ("Discretionary", ["restaurants", "supermarkets and grocery stores", "general merchandise", "retail",
+                       "entertainment", "clothing", "alcohol and bars", "alcoholandbars", "fooddelivery", "reimbursement"]),
+    ("Bill pay to individuals", ["bill pay"]),
+    ("Professional services", ["professional services", "professionalservices"]),
+    ("Marketing and ads", ["marketing & advertising", "advertising"]),
+]
+OVERHEAD_GROUP_NOTES = {
+    "Travel": "Priced into each out of town quote at cost plus margin. Zero on local events.",
+    "Discretionary": "Capped at $2,500 a month.",
+    "Bill pay to individuals": "Needs a look. Event workers are event staff COGS. Recurring help is core people.",
+    "Professional services": "",
+    "Marketing and ads": "A flat monthly number. Edy is $3,250 once hired.",
+}
+OVERHEAD_FIXED_GROUP = "Software, insurance, ADP fees, storage"
+OVERHEAD_OTHER_GROUP = "Everything else"
+FIXED_GROUPS = {OVERHEAD_FIXED_GROUP, "Marketing and ads"}
+
+# Peer benchmarks for the BLUF. Windansea values are computed; these are text with cites.
+BENCHMARKS = [
+    {"key": "gross", "metric": "Gross margin", "what": "Revenue minus coconuts, supplies and the people who work the event.",
+     "agency": "50 to 60% [1]", "wholesale": "20 to 35% [2], 15% public distributors [3]"},
+    {"key": "labor", "metric": "Labor", "what": "Event staff plus the salaried team.",
+     "agency": "50 to 70% [4]", "wholesale": "not benchmarked"},
+    {"key": "operating", "metric": "Operating margin", "what": "Revenue minus every cost including owner salaries, before income tax.",
+     "agency": "13% public agencies [3], 20% or better well run [1]", "wholesale": "3% public distributors [3], 4 to 8% specialty [2]"},
+    {"key": "after_tax", "metric": "After tax margin", "what": "Operating margin after a 35% income tax reserve.",
+     "agency": "13% in 2025, 15% long run [5]", "wholesale": "1% public distributors [3]"},
+    {"key": "marketing", "metric": "Marketing", "what": "Ads, PR and social.",
+     "agency": "8 to 14% [1]", "wholesale": "not benchmarked"},
+]
+SOURCES = [
+    ("Parakeeto agency benchmarks: delivery margin 50 to 60% of revenue, overhead 20 to 30% of gross income with sales and marketing 8 to 14%, target 20%+ profit.",
+     "https://www.parakeeto.com/blog/agency-metrics/"),
+    ("Wholesail, Wholesale Distributor Profit Margins: specialty and premium food distributors gross 20 to 35%, net 4 to 8%. Trade blog, figures not cited to a study.",
+     "https://wholesailhub.com/blog/wholesale-distributor-profit-margins"),
+    ("NYU Stern, Aswath Damodaran, Margins by Sector (US), January 2026: Food Wholesalers (13 firms) gross 15.4%, operating 2.8%, net 1.2%; Advertising (52 firms) gross 36.2%, operating 13.3%, net minus 0.3%.",
+     "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/margin.html"),
+    ("Mercury, Marketing agency profit margins: labor 50 to 70% of agency revenue.",
+     "https://mercury.com/blog/marketing-agency-profit-margins"),
+    ("Promethean Research, How Profitable are Digital Agencies?, April 2026: 13% after tax net margin in 2025, 14% in 2024, about 15% long run since 2015.",
+     "https://prometheanresearch.com/how-profitable-are-digital-agencies/"),
+]
+ASSUMPTIONS = [
+    "Year estimate: actual Jan to Aug plus Sep to Dec tailed off August (minus Currency Cloud) at 70, 45, 20 and 15%.",
+    "Owner pay at plan: Harrison $6,500, Jordan $2,700. Draws above plan are distributions, not cost. Trent, Juniper and Tim at actuals. Full plan team adds the Ops Manager and Edy and moves Trent to $9,125.",
+    "Cost ratios held at summer levels across the year.",
+    "Sales tax collected is in revenue and the remittance is a cost.",
+    "No public source benchmarks luxury event food carts. Agency figures are digital and marketing agency surveys. Wholesale figures are public distributors and one uncited trade blog.",
+]
+OPEN_ITEMS = [
+    "When Trent works events and does branding instead of running the machine, and how slow season prep time is used.",
+    "Is the ADP hourly line in event staff including Trent, Harrison and Juniper? No. ADP hourly is everyone on ADP except those three, who are pulled out by name into core people.",
+]
