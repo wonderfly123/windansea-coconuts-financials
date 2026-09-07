@@ -6,6 +6,8 @@
   between winter and summer. Each cost that moves with sales gets a target share of
   revenue. Each cost that does not gets a dollar cap. Built from May to Aug 2026
   actuals.
+- **May to Aug 2026 average.** Revenue $90k a month. Costs $68k a month, everything
+  included.
 - **Cash.** $119k after the card balance.
 - **Months of operating if nothing else comes in.** 5.4 months today, 4.0 with the
   full plan team. 8.1 and 6.0 if the $60k customers owe is collected.

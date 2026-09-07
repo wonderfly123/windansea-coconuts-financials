@@ -55,6 +55,7 @@ def _bluf(r) -> str:
     bullets = [
         ('What this is', 'Spending rules for a business whose revenue swings ten to one between winter and summer. Each cost that moves with sales gets a target share of revenue. '
                          'Each cost that does not gets a dollar cap. Built from May to Aug 2026 actuals.'),
+        ('May to Aug 2026 average', f'Revenue {money(r["rev"])} a month. Costs {money(r["var_total"] + r["nut_today"])} a month, everything included.'),
         ('Cash', f'{money(r["cash"])} after the card balance.'),
         ('Months of operating if nothing else comes in', f'{r["months_today"]:.1f} months today, {r["months_plan"]:.1f} with the full plan team. '
                                                         f'{r["months_ar_today"]:.1f} and {r["months_ar_plan"]:.1f} if the {money(r["ar_total"])} customers owe is collected.'),
