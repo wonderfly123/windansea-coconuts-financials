@@ -61,7 +61,7 @@ def _bluf(r) -> str:
         ('Break even', f'{money(r["breakeven_today"])} of revenue a month today, {money(r["breakeven_plan"])} with the full plan team.'),
         ('Each revenue dollar', f'{pct(r["cogs_all_pct"])} goes to coconuts, supplies and event staff, {pct(r["var_pct"] - r["cogs_all_pct"])} to sales tax and event overhead, '
                                 f'and {r["kept"] * 100:.0f} cents is left for fixed costs and profit.'),
-        ('Fixed monthly costs', f'{money(r["nut_today"])} today, {money(r["nut_plan"])} with the full plan team. Core people are {pct(r["core_pct"])} of a summer month.'),
+        ('Fixed monthly costs', f'{money(r["nut_today"])} today, {money(r["nut_plan"])} with the full plan team. The core team is {pct(r["core_pct"])} of a summer month.'),
         ('Against peers', f'Gross margin {pct(r["gross"])} beats activation agencies (50 to 60%) and specialty wholesalers (20 to 35%). '
                           f'Operating margin {pct(m["summer_today"])} in a summer month, {pct(m["year_today"])} for the year. '
                           f'Marketing at {pct(r["marketing_pct"], 1)} is far below the 8 to 14% agencies spend.'),
@@ -93,10 +93,10 @@ def _scale(c, r) -> str:
         _tr(["Variable overhead (travel, meals, reimbursements)", money(r["var_oh"]), pct(r["var_oh_pct"], 1)]),
         _tr(["Total variable", money(r["var_total"]), pct(r["var_pct"])], "total"),
     ]
-    vendors = [_tr([e(n), money(v)]) for n, v in c["tops"][P.COGS]]
+    w = sum(P.MONTH_WEIGHTS.values())
+    vendors = [_tr([e(n), money(v / w)]) for n, v in c["tops"][P.COGS]]
     names = {P.SUB_ADP_HOURLY: "ADP hourly (W-2 event staff)", P.SUB_VENMO: "Venmo, Apple Cash, Tremendous",
              P.SUB_CONTRACTOR: "Contractors (Indico Thread, Nathan Zini, Josh Escalante)"}
-    w = sum(P.MONTH_WEIGHTS.values())
     staff_rows = []
     for k in (P.SUB_ADP_HOURLY, P.SUB_VENMO, P.SUB_CONTRACTOR):
         mo = c["noncore_subs"].get(k, {m: 0.0 for m in P.MONTHS})
@@ -104,7 +104,7 @@ def _scale(c, r) -> str:
         staff_rows.append(_tr([names[k], money(avg), pct(avg / r["rev"], 1)] + [money(mo[m]) for m in P.MONTHS]))
     t = P.RULE_TARGETS
     return (
-        '<h2>1. Costs that scale with revenue</h2>'
+        '<h2>Costs that scale with revenue</h2>'
         + _table(["Line", "Avg per month", "% of revenue"], rows)
         + f'<p class="lead">After these costs, every revenue dollar has about {r["kept"] * 100:.0f} cents left to cover fixed costs.</p>'
         + '<h3 class="sect">Are these healthy?</h3><ul class="assume">'
@@ -142,13 +142,13 @@ def _overhead(c, r) -> str:
 def _fixed(c, r) -> str:
     t = c["core"]
     nut = [
-        _tr(["Core people", money(t["actual_total"]), money(t["plan_total"])]),
+        _tr(["Core team", money(t["actual_total"]), money(t["plan_total"])]),
         _tr(["Software, insurance, ADP fees, storage, marketing", money(r["fixed_oh"]), money(r["fixed_oh"])]),
         _tr(["Monthly cost with no sales", money(r["nut_today"]), money(r["nut_plan"])], "total"),
     ]
     people = [_tr([e(p["person"]) + f'<div class="small">{e(p["role"])}</div>', money(p["actual"]), money(p["plan_total"])]) for p in t["rows"]]
-    return ('<h2>2. Fixed monthly costs</h2>' + _table(["Line", "Today", "Full plan"], nut)
-            + '<h3 class="sect">Core people, actual monthly average vs plan</h3>' + _table(["Person", "Actual", "Plan"], people, "plan"))
+    return ('<h2>Fixed monthly costs</h2>' + _table(["Line", "Today", "Full plan"], nut)
+            + '<h3 class="sect">Core team, actual monthly average vs plan</h3>' + _table(["Person", "Actual", "Plan"], people, "plan"))
 
 
 def _breakeven(r) -> str:
@@ -157,7 +157,7 @@ def _breakeven(r) -> str:
         _tr([f'Months of cash if nothing sells ({money(r["cash"])} after card balance)', f'{r["months_today"]:.1f}', f'{r["months_plan"]:.1f}']),
         _tr([f'Same, if the {money(r["ar_total"])} open AR collects', f'{r["months_ar_today"]:.1f}', f'{r["months_ar_plan"]:.1f}']),
     ]
-    return ('<h2>3. Break even and runway</h2>'
+    return ('<h2>Break even and runway</h2>'
             f'<p class="small">Break even revenue is fixed monthly costs divided by the {r["kept"] * 100:.0f} cents left per dollar.</p>'
             + _table(["", "Today", "Full plan"], rows)
             + '<p>Wholesale stops after September, so winter revenue is events only.</p>')

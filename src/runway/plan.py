@@ -203,7 +203,7 @@ OVERHEAD_GROUPS = [  # (group, lower case subs); checked in order before the fix
 OVERHEAD_GROUP_NOTES = {
     "Travel": "Priced into each out of town quote at cost plus margin. Zero on local events.",
     "Discretionary": "Capped at $2,500 a month.",
-    "Bill pay to individuals": "Needs a look. Event workers are event staff COGS. Recurring help is core people.",
+    "Bill pay to individuals": "Needs a look. Event workers are event staff COGS. Recurring help is core team.",
     "Professional services": "",
     "Marketing and ads": "A flat monthly number. Edy is $3,250 once hired.",
 }
@@ -248,6 +248,6 @@ ASSUMPTIONS = [
     "No public source benchmarks luxury event food carts. Agency figures are digital and marketing agency surveys. Wholesale figures are public distributors and one uncited trade blog.",
 ]
 OPEN_ITEMS = [
-    "When Trent should work events and do branding himself instead of running operations, and how slow season prep time is used.",
-    "Is the ADP hourly line in event staff including Trent, Harrison and Juniper? No. ADP hourly is everyone on ADP except those three, who are pulled out by name into core people.",
+    "The golden rule says when the core team works events. Still open: how slow season prep time is used, and when Trent does branding.",
+    "Is the ADP hourly line in event staff including Trent, Harrison and Juniper? No. ADP hourly is everyone on ADP except those three, who are pulled out by name into the core team.",
 ]

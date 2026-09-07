@@ -14,7 +14,7 @@
 - **Break even.** $45k of revenue a month today, $61k with the full plan team.
 - **Each revenue dollar.** 32% goes to coconuts, supplies and event staff, 20% to
   sales tax and event overhead, and 49 cents is left for fixed costs and profit.
-- **Fixed monthly costs.** $22k today, $30k with the full plan team. Core people are
+- **Fixed monthly costs.** $22k today, $30k with the full plan team. The core team is
   23% of a summer month.
 - **Against peers.** Gross margin 69% beats activation agencies (50 to 60%) and
   specialty wholesalers (20 to 35%). Operating margin 29% in a summer month, 12% for
@@ -58,7 +58,7 @@ wrong in most months. Instead, every cost gets one of two rules:
 2. **Costs that are the same every month** (salaried people, software, insurance) get
    a dollar cap.
 
-## 1. Costs that scale with revenue
+## Costs that scale with revenue
 
 | Line | Avg per month | % of revenue |
 |---|---:|---:|
@@ -127,22 +127,22 @@ Rules:
   events.
 - **Discretionary** is capped at $2,500 a month.
 - **Bill pay to individuals** needs a look. Event workers are event staff COGS.
-  Recurring help is core people.
+  Recurring help is core team.
 - **Marketing and ads** is a flat monthly number. Today $300. Edy is $3,250 once hired.
 
 With discretionary capped and travel passed through, variable cost drops to about
 44%, every revenue dollar keeps about 56 cents, and break even at full plan drops
 to about $54,000.
 
-## 2. Fixed monthly costs
+## Fixed monthly costs
 
 | Line | Today | Full plan |
 |---|---:|---:|
-| Core people | $20,700 | $28,800 |
+| Core team | $20,700 | $28,800 |
 | Software, insurance, ADP fees, storage | $1,300 | $1,300 |
 | **Monthly cost with no sales** | **$22,000** | **$30,100** |
 
-Core people today (actual monthly average vs plan):
+Core team, actual monthly average vs plan:
 
 | Person | Actual | Plan |
 |---|---:|---:|
@@ -154,7 +154,7 @@ Core people today (actual monthly average vs plan):
 | Assistant Ops Manager (not hired) | $0 | $5,625 |
 | Edy, social (not hired) | $0 | $3,250 |
 
-## 3. Break even and runway
+## Break even and runway
 
 Break even revenue is fixed monthly costs divided by the 49 cents left per dollar.
 
@@ -180,11 +180,11 @@ Wholesale stops after September, so winter revenue is events only.
 
 ## Open items / Questions
 
-- When Trent should work events and do branding himself instead of running
-  operations, and how slow season prep time is used.
+- The golden rule says when the core team works events. Still open: how slow season
+  prep time is used, and when Trent does branding.
 - Is the above labor in the variable that says ADP include Trent, Harry, and Juniper?
   No. ADP hourly is everyone on ADP except Harrison, Trent and Juniper. Those three
-  are pulled out by name into core people.
+  are pulled out by name into the core team.
 
 ## Appendix: data basis and sources
 
