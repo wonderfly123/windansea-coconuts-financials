@@ -60,6 +60,7 @@ SPLIT_BOFA = {"2026-06-01": {"amount": 3400.0, "jordan": 2000.0, "harrison": 140
 COGS_MERCHANTS = [
     "sun hing", "coy's produce", "coys produce", "alibaba", "manila oriental",
     "vien dong", "ematik", "packola", "uline", "imprintnow", "gearheart", "wrap caviar",
+    "amazon",  # event supplies, split across events (Jordan, Sep 7 2026)
 ]
 NONCORE_CONTRACTORS = ["indico thread", "nathan zini", "josh escalante"]
 VENMO_LIKE = ["venmo", "tremendous", "apple cash"]
@@ -189,7 +190,7 @@ GTM = [
 # Operating rules tab (Jordan, Sep 6 2026) -------------------------------------------
 ONE_OFF_AUG = 67226.0  # Currency Cloud, Aug 5 2026, treated as a one off
 OWNER_KEYS = ("harrison", "jordan")  # margins use plan pay for these, actuals for everyone else
-RULE_TARGETS = {"product_pct": 0.16, "staff_pct": 0.14, "discretionary_cap": 2500.0}
+RULE_TARGETS = {"product_pct": 0.18, "staff_pct": 0.14, "discretionary_cap": 2500.0}
 OVERHEAD_GROUPS = [  # (group, lower case subs); checked in order before the fixed rule
     ("Travel", ["airlines", "car rental", "lodging", "taxi and rideshare", "rideshareandtaxis",
                 "travel & transportation", "travel misc", "fuel and gas", "fuelandgas", "parking"]),

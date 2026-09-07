@@ -2,9 +2,12 @@
 
 ## BLUF: how healthy the business is
 
-Strong product, loose back office. Margins beat both peer groups, cash covers five
-months of fixed cost, and the salaried team is affordable. The weak spots are
-collections, spending not tied to any event, owner draws above plan, and no marketing.
+The business makes money on every coconut and every event, and it keeps more of each
+dollar than the agencies and wholesalers it resembles. Cash covers five months of fixed
+costs with no sales, and the salaried team costs less than a quarter of a summer month.
+The problems are on the collecting and spending side: a third of what customers owe is
+past due, owner draws run above plan, one customer is a seventh of the year, and almost
+nothing is spent on marketing.
 
 Each row is a share of revenue. Windansea is the May to Aug 2026 average, about $90k
 a month. Where the full year differs, the year estimate is shown too. Peer figures are
@@ -12,15 +15,26 @@ cited in the appendix.
 
 | What is measured | Windansea | Brand activation agencies | Specialty food wholesale |
 |---|---:|---:|---:|
-| **Gross margin.** Revenue minus coconuts, supplies and the people who work the event. | 70% | 50 to 60% [1] | 20 to 35% [2], 15% public distributors [3] |
+| **Gross margin.** Revenue minus coconuts, supplies and the people who work the event. | 69% | 50 to 60% [1] | 20 to 35% [2], 15% public distributors [3] |
 | **Labor.** Event staff plus the salaried team. | 33% today, 46% with the full plan team | 50 to 70% [4] | not benchmarked |
 | **Operating margin.** Revenue minus every cost including owner salaries, before income tax. | 29% summer, 12% for the year. With the full plan team: 16% summer, 13% loss for the year | 13% public agencies [3], 20% or better well run [1] | 3% public distributors [3], 4 to 8% specialty [2] |
 | **After tax margin.** Operating margin after a 35% income tax reserve. | 19% summer, 8% for the year | 13% in 2025, 15% long run [5] | 1% public distributors [3] |
 | **Marketing.** Ads, PR and social. | 0.3% | 8 to 14% [1] | not benchmarked |
 
+Read across the table. On gross margin Windansea keeps 69% of every dollar after the
+coconuts and the people who work the event. That is above the agency range and more
+than double the wholesale range, because a branded coconut at an event is priced like
+an activation, not like produce. Labor is 33% of revenue where agencies run 50 to 70%,
+so the business is not people heavy even though it delivers with people. Operating
+margin is where the calendar shows: 29% in a summer month beats every peer, but the
+same costs spread over a full year with a quiet winter give 12%, which is ordinary for
+an agency and good for a wholesaler. Marketing at 0.3% against a peer range of 8 to
+14% is the clearest gap. The summer margin says the product is right. The year margin
+says the business is not yet buying enough winter revenue to use it.
+
 **Healthy**
 
-- Product is 16% of revenue and event staff 14%.
+- Product is 17% of revenue and event staff 14%.
 - Core people are 23% of a summer month.
 - $119k cash after the card balance. That covers 5.4 months of fixed costs with no sales.
 
@@ -28,8 +42,7 @@ cited in the appendix.
 
 - $60k owed on 37 open invoices. $40k of it, on 22 invoices, is past due. Nobody owns
   accounts receivable.
-- $5.7k a month of overhead is restaurants, groceries, Amazon, clothing and
-  reimbursements. $4k a month is travel that is not priced into quotes.
+- $4.6k a month of overhead is restaurants, groceries, clothing and reimbursements. $4k a month is travel that is not priced into quotes.
 - Harrison took about $9,900 a month against a $6,500 plan.
 - Marketing is 0.3% of revenue. Edy at $3,250 would be 3.6% of a summer month.
 - One deal, Currency Cloud at $67k, is 14% of the year so far.
@@ -61,24 +74,25 @@ wrong in most months. Instead, every cost gets one of two rules:
 
 | Line | Avg per month | % of revenue |
 |---|---:|---:|
-| **COGS, all in** | **$27,300** | **30.3%** |
-| Product (coconuts, supplies, packaging) | $14,500 | 16.2% |
+| **COGS, all in** | **$28,300** | **31.5%** |
+| Product (coconuts, supplies, packaging) | $15,600 | 17.3% |
 | Event staff | $12,700 | 14.1% |
 | Sales tax paid to the state | $4,100 | 4.6% |
-| Variable overhead (travel, meals, Amazon, reimbursements) | $14,500 | 16.1% |
-| **Total variable** | **$46,000** | **51%** |
+| Variable overhead (travel, meals, reimbursements) | $13,500 | 15.0% |
+| **Total variable** | **$45,900** | **51%** |
 
 After these costs, every revenue dollar has about 49 cents left to cover fixed costs.
 
 ### COGS breakdown
 
-**Product, $14,500 a month (16.2%)**
+**Product, $15,600 a month (17.3%)**
 
 | Vendor | Avg per month |
 |---|---:|
 | Sun Hing Foods (coconuts) | $8,070 |
 | Gearheart Industry | $2,480 |
 | Coy's Produce | $2,130 |
+| Amazon (event supplies, split across events) | $1,060 |
 | Ematik Vending Carts | $590 |
 | Alibaba | $440 |
 | Wrap Caviar | $270 |
@@ -93,17 +107,17 @@ After these costs, every revenue dollar has about 49 cents left to cover fixed c
 | Venmo, Apple Cash, Tremendous | $3,450 | 3.8% | $5,747 | $1,274 | $6,063 | $381 |
 | Contractors (Indico Thread, Nathan Zini, Josh Escalante) | $2,150 | 2.4% | $4,000 | $979 | $2,892 | $516 |
 
-Targets: product at or under 16%. Event staff at or under 14%, quoted per event as
+Targets: product at or under 18%. Event staff at or under 14%, quoted per event as
 staff hours times rate divided by coconut count before the event is booked.
 
-### Variable overhead, $14,500 a month (16.1%)
+### Variable overhead, $13,500 a month (15.0%)
 
 Most of this is not actually variable.
 
 | Group | Avg per month | What is in it |
 |---|---:|---|
 | Travel | $4,000 | Airlines $1,125, car rental $660, lodging $560, rideshare $420, fuel $740, travel misc $460, parking $75 |
-| Discretionary | $5,700 | Restaurants $1,250, groceries $630, Amazon and general merchandise $1,500, reimbursements $1,770, entertainment, clothing, alcohol |
+| Discretionary | $4,600 | Reimbursements $1,770, restaurants $1,250, groceries $630, Tesla, Etsy, Home Depot, entertainment, clothing, alcohol |
 | Bill pay to individuals | $3,600 | Ariana Cohen, Solo Systems, Miguel Flores Photography, Jenn Kham, John Barron, others |
 | Professional services | $850 | Coach Roach Consulting $670 |
 | Marketing and ads | $300 | VPR, The Knot, Facebook Ads, Imprint Events |
@@ -119,8 +133,8 @@ Rules:
 - **Marketing and ads** is a flat monthly number. Today $300. Edy is $3,250 once hired.
 
 With discretionary capped and travel passed through, variable cost drops to about
-43%, every revenue dollar keeps about 57 cents, and break even at full plan drops
-to about $53,000.
+44%, every revenue dollar keeps about 56 cents, and break even at full plan drops
+to about $54,000.
 
 ## 2. Fixed monthly costs
 
@@ -156,7 +170,7 @@ Wholesale stops after September, so winter revenue is events only.
 
 ## The rules on one line each
 
-1. Product COGS at or under 16% of revenue.
+1. Product COGS at or under 18% of revenue.
 2. Event staff at or under 14% of revenue, quoted per event before booking.
 3. Travel priced into the quote, not budgeted.
 4. Discretionary spend capped at $2,500 a month.

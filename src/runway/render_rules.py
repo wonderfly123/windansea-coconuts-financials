@@ -21,6 +21,19 @@ def _tr(cells, cls="") -> str:
     return f'<tr class="{cls}">{tds}</tr>'
 
 
+def _bench_analysis(r) -> str:
+    m = r["margins"]
+    return (
+        f'<p class="analysis">Read across the table. On gross margin Windansea keeps {pct(r["gross"])} of every dollar after the coconuts and the '
+        f'people who work the event. That is above the agency range and more than double the wholesale range, because a branded coconut at an '
+        f'event is priced like an activation, not like produce. Labor is {pct(r["labor_today"])} of revenue where agencies run 50 to 70%, so the '
+        f'business is not people heavy even though it delivers with people. Operating margin is where the calendar shows: {pct(m["summer_today"])} '
+        f'in a summer month beats every peer, but the same costs spread over a full year with a quiet winter give {pct(m["year_today"])}, which is '
+        f'ordinary for an agency and good for a wholesaler. Marketing at {pct(r["marketing_pct"], 1)} against a peer range of 8 to 14% is the '
+        f'clearest gap. The summer margin says the product is right. The year margin says the business is not yet buying enough winter revenue to use it.</p>'
+    )
+
+
 def _bluf(r) -> str:
     m = r["margins"]
     win = {
@@ -46,7 +59,7 @@ def _bluf(r) -> str:
     ]
     not_healthy = [
         f'{money(r["ar_total"])} owed on {r["ar_count"]} open invoices. {money(r["ar_overdue"])} of it, on {r["ar_overdue_count"]} invoices, is past due. Nobody owns accounts receivable.',
-        f'{money(r["discretionary"])} a month of overhead is restaurants, groceries, Amazon, clothing and reimbursements. {money(r["travel"])} a month is travel that is not priced into quotes.',
+        f'{money(r["discretionary"])} a month of overhead is restaurants, groceries, clothing and reimbursements. {money(r["travel"])} a month is travel that is not priced into quotes.',
         f'Harrison took about {money(r["harrison_actual"])} a month against a {money(r["harrison_plan"])} plan.',
         f'Marketing is {pct(r["marketing_pct"], 1)} of revenue. Edy at {money(r["edy_plan"])} would be {pct(r["edy_pct"], 1)} of a summer month.',
         f'One deal, Currency Cloud at {money(P.ONE_OFF_AUG)}, is {pct(r["concentration"])} of the year so far.',
@@ -54,11 +67,14 @@ def _bluf(r) -> str:
     li = lambda items: "".join(f"<li>{i}</li>" for i in items)
     return (
         '<h2>BLUF: how healthy the business is</h2>'
-        '<p class="lead">Strong product, loose back office. Margins beat both peer groups, cash covers five months of fixed cost, '
-        'and the salaried team is affordable. The weak spots are collections, spending not tied to any event, owner draws above plan, and no marketing.</p>'
+        '<p class="lead">The business makes money on every coconut and every event, and it keeps more of each dollar than the agencies and wholesalers it resembles. '
+        'Cash covers five months of fixed costs with no sales, and the salaried team costs less than a quarter of a summer month. '
+        'The problems are on the collecting and spending side: a third of what customers owe is past due, owner draws run above plan, '
+        'one customer is a seventh of the year, and almost nothing is spent on marketing.</p>'
         f'<p class="small">Each row is a share of revenue. Windansea is the May to Aug 2026 average, {money(r["rev"])} a month. '
         'Where the full year differs, the year estimate is shown too. Peer figures are cited in the appendix at the bottom.</p>'
         + _table(["What is measured", "Windansea", "Brand activation agencies", "Specialty food wholesale"], rows, "bench")
+        + _bench_analysis(r)
         + '<details><summary>Where the year number comes from</summary>' + year_math + '</details>'
         f'<div class="grid g2"><div class="tile good"><h3>Healthy</h3><ul class="assume">{li(healthy)}</ul></div>'
         f'<div class="tile bad"><h3>Not healthy</h3><ul class="assume">{li(not_healthy)}</ul></div></div>'
@@ -72,7 +88,7 @@ def _scale(c, r) -> str:
         _tr(["Product (coconuts, supplies, packaging)", money(r["product"]), pct(r["product_pct"], 1)]),
         _tr(["Event staff", money(r["staff"]), pct(r["staff_pct"], 1)]),
         _tr(["Sales tax paid to the state", money(r["tax"]), pct(r["tax_pct"], 1)]),
-        _tr(["Variable overhead (travel, meals, Amazon, reimbursements)", money(r["var_oh"]), pct(r["var_oh_pct"], 1)]),
+        _tr(["Variable overhead (travel, meals, reimbursements)", money(r["var_oh"]), pct(r["var_oh_pct"], 1)]),
         _tr(["Total variable", money(r["var_total"]), pct(r["var_pct"])], "total"),
     ]
     vendors = [_tr([e(n), money(v)]) for n, v in c["tops"][P.COGS]]
