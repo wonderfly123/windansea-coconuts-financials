@@ -108,6 +108,7 @@ details summary{cursor:pointer;color:var(--sea);font-weight:500;margin-top:8px}
 .rules .appendix a{color:var(--sea);word-break:break-all}
 .rules .assume li{margin:6px 0}
 .rules .grid{margin-top:14px}
+.rules .bluf{max-width:none;font-size:16px;margin:0}.rules .bluf li{margin:10px 0}
 @media (prefers-reduced-motion: no-preference){.tile{transition:border-color .15s}}
 """
 

@@ -52,35 +52,36 @@ def _bluf(r) -> str:
         _tr([f'Fixed monthly costs for 12 months, owners at plan pay ({money(r["core_norm"] + r["fixed_oh"])} a month)', money((r["core_norm"] + r["fixed_oh"]) * 12)]),
         _tr(["Operating profit for the year", f'{money(r["year"] * r["kept"] - (r["core_norm"] + r["fixed_oh"]) * 12)}, {pct(m["year_today"])} of revenue'], "total"),
     ])
-    healthy = [
-        f'Product is {pct(r["product_pct"])} of revenue and event staff {pct(r["staff_pct"])}.',
-        f'Core people are {pct(r["core_pct"])} of a summer month.',
-        f'{money(r["cash"])} cash after the card balance. {r["months_today"]:.1f} months of fixed costs with no sales.',
+    bullets = [
+        ('What this is', 'Spending rules for a business whose revenue swings ten to one between winter and summer. Each cost that moves with sales gets a target share of revenue. '
+                         'Each cost that does not gets a dollar cap. Built from May to Aug 2026 actuals.'),
+        ('Cash', f'{money(r["cash"])} after the card balance.'),
+        ('Months of operating if nothing else comes in', f'{r["months_today"]:.1f} months today, {r["months_plan"]:.1f} with the full plan team. '
+                                                        f'{r["months_ar_today"]:.1f} and {r["months_ar_plan"]:.1f} if the {money(r["ar_total"])} customers owe is collected.'),
+        ('Break even', f'{money(r["breakeven_today"])} of revenue a month today, {money(r["breakeven_plan"])} with the full plan team.'),
+        ('Each revenue dollar', f'{pct(r["cogs_all_pct"])} goes to coconuts, supplies and event staff, {pct(r["var_pct"] - r["cogs_all_pct"])} to sales tax and event overhead, '
+                                f'and {r["kept"] * 100:.0f} cents is left for fixed costs and profit.'),
+        ('Fixed monthly costs', f'{money(r["nut_today"])} today, {money(r["nut_plan"])} with the full plan team. Core people are {pct(r["core_pct"])} of a summer month.'),
+        ('Against peers', f'Gross margin {pct(r["gross"])} beats activation agencies (50 to 60%) and specialty wholesalers (20 to 35%). '
+                          f'Operating margin {pct(m["summer_today"])} in a summer month, {pct(m["year_today"])} for the year. '
+                          f'Marketing at {pct(r["marketing_pct"], 1)} is far below the 8 to 14% agencies spend.'),
+        ('Watch', f'{money(r["ar_overdue"])} of the {money(r["ar_total"])} owed is past due and nobody owns collections. '
+                  f'Harrison draws {money(r["harrison_actual"])} a month against a {money(r["harrison_plan"])} plan. '
+                  f'Currency Cloud is {pct(r["concentration"])} of the year so far.'),
     ]
-    not_healthy = [
-        f'{money(r["ar_total"])} owed on {r["ar_count"]} open invoices. {money(r["ar_overdue"])} of it, on {r["ar_overdue_count"]} invoices, is past due. Nobody owns accounts receivable.',
-        f'{money(r["discretionary"])} a month of overhead is restaurants, groceries, clothing and reimbursements. {money(r["travel"])} a month is travel that is not priced into quotes.',
-        f'Harrison took about {money(r["harrison_actual"])} a month against a {money(r["harrison_plan"])} plan.',
-        f'Marketing is {pct(r["marketing_pct"], 1)} of revenue. Edy at {money(r["edy_plan"])} would be {pct(r["edy_pct"], 1)} of a summer month.',
-        f'One deal, Currency Cloud at {money(P.ONE_OFF_AUG)}, is {pct(r["concentration"])} of the year so far.',
-    ]
-    li = lambda items: "".join(f"<li>{i}</li>" for i in items)
+    li = "".join(f'<li><strong>{e(h)}.</strong> {t}</li>' for h, t in bullets)
     return (
-        '<h2>BLUF: how healthy the business is</h2>'
-        '<p class="lead">The business makes money on every coconut and every event, and it keeps more of each dollar than the agencies and wholesalers it resembles. '
-        'Cash covers five months of fixed costs with no sales, and the salaried team costs less than a quarter of a summer month. '
-        'The problems are on the collecting and spending side: a third of what customers owe is past due, owner draws run above plan, '
-        'one customer is a seventh of the year, and almost nothing is spent on marketing.</p>'
+        '<h2>BLUF</h2>'
+        f'<div class="tile good"><ul class="assume bluf">{li}</ul></div>'
+        '<details><summary>How we compare to peers</summary>'
         f'<p class="small">Each row is a share of revenue. Windansea is the May to Aug 2026 average, {money(r["rev"])} a month. '
-        'Where the full year differs, the year estimate is shown too. Peer figures are cited in the appendix at the bottom.</p>'
+        'Peer figures are cited in the appendix at the bottom.</p>'
         + _table(["What is measured", "Windansea", "Brand activation agencies", "Specialty food wholesale"], rows, "bench")
         + _bench_analysis(r)
         + '<details><summary>Where the year number comes from</summary>' + year_math + '</details>'
-        f'<div class="grid g2"><div class="tile good"><h3>Healthy</h3><ul class="assume">{li(healthy)}</ul></div>'
-        f'<div class="tile bad"><h3>Not healthy</h3><ul class="assume">{li(not_healthy)}</ul></div></div>'
-        '<details><summary>Assumptions</summary><ul class="assume">' + li(e(x) for x in P.ASSUMPTIONS) + '</ul></details>'
+        '<details><summary>Assumptions</summary><ul class="assume">' + "".join(f"<li>{e(x)}</li>" for x in P.ASSUMPTIONS) + '</ul></details>'
+        '</details>'
     )
-
 
 def _scale(c, r) -> str:
     rows = [

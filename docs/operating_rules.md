@@ -1,17 +1,29 @@
 # Windansea Coconuts: Operating Rules Instead of a Budget
 
-## BLUF: how healthy the business is
+## BLUF
 
-The business makes money on every coconut and every event, and it keeps more of each
-dollar than the agencies and wholesalers it resembles. Cash covers five months of fixed
-costs with no sales, and the salaried team costs less than a quarter of a summer month.
-The problems are on the collecting and spending side: a third of what customers owe is
-past due, owner draws run above plan, one customer is a seventh of the year, and almost
-nothing is spent on marketing.
+- **What this is.** Spending rules for a business whose revenue swings ten to one
+  between winter and summer. Each cost that moves with sales gets a target share of
+  revenue. Each cost that does not gets a dollar cap. Built from May to Aug 2026
+  actuals.
+- **Cash.** $119k after the card balance.
+- **Months of operating if nothing else comes in.** 5.4 months today, 4.0 with the
+  full plan team. 8.1 and 6.0 if the $60k customers owe is collected.
+- **Break even.** $45k of revenue a month today, $61k with the full plan team.
+- **Each revenue dollar.** 32% goes to coconuts, supplies and event staff, 20% to
+  sales tax and event overhead, and 49 cents is left for fixed costs and profit.
+- **Fixed monthly costs.** $22k today, $30k with the full plan team. Core people are
+  23% of a summer month.
+- **Against peers.** Gross margin 69% beats activation agencies (50 to 60%) and
+  specialty wholesalers (20 to 35%). Operating margin 29% in a summer month, 12% for
+  the year. Marketing at 0.3% is far below the 8 to 14% agencies spend.
+- **Watch.** $40k of the $60k owed is past due and nobody owns collections. Harrison
+  draws $9,900 a month against a $6,500 plan. Currency Cloud is 14% of the year so far.
+
+### How we compare to peers
 
 Each row is a share of revenue. Windansea is the May to Aug 2026 average, about $90k
-a month. Where the full year differs, the year estimate is shown too. Peer figures are
-cited in the appendix.
+a month. Peer figures are cited in the appendix.
 
 | What is measured | Windansea | Brand activation agencies | Specialty food wholesale |
 |---|---:|---:|---:|
@@ -31,21 +43,6 @@ same costs spread over a full year with a quiet winter give 12%, which is ordina
 an agency and good for a wholesaler. Marketing at 0.3% against a peer range of 8 to
 14% is the clearest gap. The summer margin says the product is right. The year margin
 says the business is not yet buying enough winter revenue to use it.
-
-**Healthy**
-
-- Product is 17% of revenue and event staff 14%.
-- Core people are 23% of a summer month.
-- $119k cash after the card balance. That covers 5.4 months of fixed costs with no sales.
-
-**Not healthy**
-
-- $60k owed on 37 open invoices. $40k of it, on 22 invoices, is past due. Nobody owns
-  accounts receivable.
-- $4.6k a month of overhead is restaurants, groceries, clothing and reimbursements. $4k a month is travel that is not priced into quotes.
-- Harrison took about $9,900 a month against a $6,500 plan.
-- Marketing is 0.3% of revenue. Edy at $3,250 would be 3.6% of a summer month.
-- One deal, Currency Cloud at $67k, is 14% of the year so far.
 
 Assumptions:
 
