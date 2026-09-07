@@ -66,7 +66,6 @@ def _bluf(r) -> str:
                           f'Operating margin {pct(m["summer_today"])} in a summer month, {pct(m["year_today"])} for the year. '
                           f'Marketing at {pct(r["marketing_pct"], 1)} is far below the 8 to 14% agencies spend.'),
         ('Watch', f'{money(r["ar_overdue"])} of the {money(r["ar_total"])} owed is past due and nobody owns collections. '
-                  f'Harrison draws {money(r["harrison_actual"])} a month against a {money(r["harrison_plan"])} plan. '
                   f'Currency Cloud is {pct(r["concentration"])} of the year so far.'),
     ]
     li = "".join(f'<li><strong>{e(h)}.</strong> {t}</li>' for h, t in bullets)

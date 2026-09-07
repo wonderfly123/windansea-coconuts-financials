@@ -17,8 +17,8 @@
 - **Against peers.** Gross margin 69% beats activation agencies (50 to 60%) and
   specialty wholesalers (20 to 35%). Operating margin 29% in a summer month, 12% for
   the year. Marketing at 0.3% is far below the 8 to 14% agencies spend.
-- **Watch.** $40k of the $60k owed is past due and nobody owns collections. Harrison
-  draws $9,900 a month against a $6,500 plan. Currency Cloud is 14% of the year so far.
+- **Watch.** $40k of the $60k owed is past due and nobody owns collections.
+  Currency Cloud is 14% of the year so far.
 
 ### How we compare to peers
 
