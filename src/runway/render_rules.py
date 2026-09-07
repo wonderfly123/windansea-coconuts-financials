@@ -68,7 +68,8 @@ def _bluf(r) -> str:
                           f'Marketing at {pct(r["marketing_pct"], 1)} is far below the 8 to 14% agencies spend.'),
         ('Golden rule', f'If the month has less than {money(r["breakeven_today"])} of events booked, about {r["golden_events"]} events at the typical '
                         f'{money(r["invoice_avg"])}, the core team works the events themselves and no hourly staff is called. Above that, hourly staff '
-                        f'is hired inside the {pct(P.RULE_TARGETS["staff_pct"])} cap and the core team runs operations.'),
+                        f'is hired inside the {pct(P.RULE_TARGETS["staff_pct"])} cap and the core team runs operations. '
+                        'The number is a guide, not a switch. In a thin month use common sense about who works what. The one constant: Harrison stays as free as possible to sell.'),
         ('Watch', f'{money(r["ar_overdue"])} of the {money(r["ar_total"])} owed is past due and nobody owns collections. '
                   f'Currency Cloud is {pct(r["concentration"])} of the year so far.'),
     ]
@@ -173,7 +174,7 @@ def _rules(r) -> str:
         'Travel priced into the quote, not budgeted.',
         f'Discretionary spend capped at {money(t["discretionary_cap"])} a month.',
         'Marketing a flat monthly number, set once.',
-        f'Under {money(r["breakeven_today"])} of events in the month (about {r["golden_events"]} events), the core team works them. Above it, hourly staff inside the {pct(t["staff_pct"])} cap.',
+        f'Under {money(r["breakeven_today"])} of events in the month (about {r["golden_events"]} events), the core team works them. Above it, hourly staff inside the {pct(t["staff_pct"])} cap. Use common sense in between. Harrison stays free to sell.',
         f'Fixed monthly costs {money(r["nut_today"])} today, {money(r["nut_plan"])} at full plan. Break even revenue {money(r["breakeven_today"])} a month today, {money(r["breakeven_plan"])} at plan.',
     ]
     return ('<h2>The rules on one line each</h2><div class="tile plan"><ol class="assume">' + "".join(f"<li>{i}</li>" for i in items) + '</ol></div>'

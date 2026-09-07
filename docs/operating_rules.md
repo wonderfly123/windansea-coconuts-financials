@@ -22,7 +22,8 @@
 - **Golden rule.** If the month has less than $45k of events booked, about 22 events at
   the typical $2,000, the core team works the events themselves and no hourly staff is
   called. Above that, hourly staff is hired inside the 14% cap and the core team runs
-  operations.
+  operations. The number is a guide, not a switch. In a thin month use common sense
+  about who works what. The one constant: Harrison stays as free as possible to sell.
 - **Watch.** $40k of the $60k owed is past due and nobody owns collections.
   Currency Cloud is 14% of the year so far.
 
@@ -189,7 +190,8 @@ Wholesale stops after September, so winter revenue is events only.
 4. Discretionary spend capped at $2,500 a month.
 5. Marketing a flat monthly number, set once.
 6. Under $45k of events in the month (about 22 events), the core team works them.
-   Above it, hourly staff inside the 14% cap.
+   Above it, hourly staff inside the 14% cap. Use common sense in between. Harrison
+   stays free to sell.
 7. Fixed monthly costs $22k today, $30k at full plan. Break even revenue $45k a month today, $61k at plan.
 
 ## Open items / Questions
