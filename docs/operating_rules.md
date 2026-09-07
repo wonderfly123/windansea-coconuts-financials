@@ -24,9 +24,6 @@
   called. Above that, hourly staff is hired inside the 14% cap and the core team runs
   operations. The number is a guide, not a switch. In a thin month use common sense
   about who works what. The one constant: Harrison stays as free as possible to sell.
-- **Watch.** $40k of the $60k owed is past due and nobody owns collections.
-  Currency Cloud is 14% of the year so far.
-
 ### How we compare to peers
 
 Each row is a share of revenue. Windansea is the May to Aug 2026 average, about $90k

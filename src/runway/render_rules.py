@@ -69,8 +69,6 @@ def _bluf(r) -> str:
                         f'{money(r["invoice_avg"])}, the core team works the events themselves and no hourly staff is called. Above that, hourly staff '
                         f'is hired inside the {pct(P.RULE_TARGETS["staff_pct"])} cap and the core team runs operations. '
                         'The number is a guide, not a switch. In a thin month use common sense about who works what. The one constant: Harrison stays as free as possible to sell.'),
-        ('Watch', f'{money(r["ar_overdue"])} of the {money(r["ar_total"])} owed is past due and nobody owns collections. '
-                  f'Currency Cloud is {pct(r["concentration"])} of the year so far.'),
     ]
     li = "".join(f'<li><strong>{e(h)}.</strong> {t}</li>' for h, t in bullets)
     return (
